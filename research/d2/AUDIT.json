@@ -5,7 +5,7 @@
   "phishing_only_domains": 93997
  },
  "tree": {
-  "files_tracked": 630,
+  "files_tracked": 631,
   "files_with_findings": 19,
   "by_category": {
    "reviewed:platform_named": 9,
@@ -195,7 +195,7 @@
   "clean": true
  },
  "history": {
-  "blobs_scanned": 1213,
+  "blobs_scanned": 1216,
   "by_category": {
    "reviewed:platform_named": {
     "blobs": 39,
