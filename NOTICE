@@ -1,0 +1,13 @@
+Limnex URL Intelligence Engine (Limnex UIE)
+Copyright 2026 The Limnex UIE Authors
+
+Licensed under the Apache License, Version 2.0 (see LICENSE). The license covers the source code
+and the published model weights.
+
+For defensive security research and education only. Generated URLs are synthetic: never register,
+resolve, visit, host or send them, and never use them against anyone. Provided "AS IS", without
+warranties or conditions of any kind and without liability; see the "Responsible Use" and
+"No Liability" sections of README.md and MODEL_CARD.md, which must accompany any redistribution.
+
+The training data (Common Crawl samples and the OpenPhish community feed) is not redistributed;
+the repository publishes the recipe that rebuilds it.

@@ -1,0 +1,358 @@
+{
+ "reference": {
+  "phishing_urls": 322552,
+  "phishing_only_hosts": 240918,
+  "phishing_only_domains": 93997
+ },
+ "tree": {
+  "files_tracked": 630,
+  "files_with_findings": 19,
+  "by_category": {
+   "reviewed:platform_named": 9,
+   "reviewed:brand_in_md_host": 1,
+   "reviewed:url_userinfo": 11,
+   "reviewed:private:email": 2,
+   "reviewed:bulk_hostnames": 1
+  },
+  "files": {
+   "BENCHMARK.md": {
+    "reviewed:platform_named": [
+     193
+    ]
+   },
+   "CORPUS_AUDIT.md": {
+    "reviewed:platform_named": [
+     49
+    ]
+   },
+   "E3_REPORT.md": {
+    "reviewed:platform_named": [
+     163,
+     164,
+     211,
+     212,
+     291,
+     292
+    ],
+    "reviewed:brand_in_md_host": [
+     152,
+     215
+    ]
+   },
+   "research/d2/AUDIT.md": {
+    "reviewed:platform_named": [
+     44
+    ],
+    "reviewed:url_userinfo": [
+     45
+    ]
+   },
+   "research/d2/audit.py": {
+    "reviewed:platform_named": [
+     74,
+     75,
+     76
+    ]
+   },
+   "research/e17/PREREG_E17.md": {
+    "reviewed:platform_named": [
+     305
+    ]
+   },
+   "research/v2/PREREG_V2_P2.md": {
+    "reviewed:platform_named": [
+     720,
+     868,
+     869
+    ]
+   },
+   "tests/fixtures_e5_path.json": {
+    "reviewed:url_userinfo": [
+     1
+    ],
+    "reviewed:private:email": [
+     1
+    ]
+   },
+   "tests/fixtures_e7_generate.json": {
+    "reviewed:url_userinfo": [
+     46,
+     50,
+     109,
+     110,
+     224,
+     329,
+     344,
+     397,
+     528,
+     546,
+     580,
+     582,
+     600,
+     654,
+     978,
+     1190,
+     1228,
+     1230,
+     1300,
+     1444,
+     1523,
+     1557,
+     1596,
+     1673,
+     1713
+    ],
+    "reviewed:private:email": [
+     94,
+     129,
+     130,
+     206,
+     258,
+     312,
+     379,
+     436,
+     506,
+     616,
+     759,
+     832,
+     1084,
+     1194,
+     1297,
+     1298,
+     1301,
+     1619
+    ],
+    "reviewed:bulk_hostnames": [
+     62
+    ]
+   },
+   "tests/test_factorization.py": {
+    "reviewed:url_userinfo": [
+     21,
+     22,
+     25,
+     79,
+     81
+    ]
+   },
+   "tests/test_field_scoped_loss.py": {
+    "reviewed:url_userinfo": [
+     23
+    ]
+   },
+   "tests/test_gate.py": {
+    "reviewed:url_userinfo": [
+     31
+    ]
+   },
+   "tests/test_metrics.py": {
+    "reviewed:url_userinfo": [
+     47
+    ]
+   },
+   "tests/test_model.py": {
+    "reviewed:url_userinfo": [
+     22
+    ]
+   },
+   "tests/test_tokenizer.py": {
+    "reviewed:url_userinfo": [
+     23,
+     112
+    ]
+   },
+   "tests/test_typicality.py": {
+    "reviewed:url_userinfo": [
+     46
+    ]
+   },
+   "uie/corpus/merge_phishing.py": {
+    "reviewed:platform_named": [
+     9
+    ]
+   },
+   "uie/factorization.py": {
+    "reviewed:url_userinfo": [
+     9,
+     115
+    ]
+   },
+   "uie/splits.py": {
+    "reviewed:platform_named": [
+     116,
+     117,
+     125
+    ]
+   }
+  },
+  "open_findings": {},
+  "reviewed_reasons": {
+   "E3_REPORT.md | brand_in_md_host": "model output (E3_REPORT section 3.4 qualitative samples and its parse example); matches no corpus URL or host; kept unchanged as evidence of what the model generates",
+   "tests/fixtures_e7_generate.json | bulk_hostnames": "random strings from a tiny untrained test model (tests/test_hc1_enforce.py); no corpus match",
+   "tests/fixtures_e7_generate.json | private:email": "random strings from the same tiny test model that happen to contain '@'; not addresses",
+   "tests/fixtures_e5_path.json | private:email": "random strings from a tiny test model that happen to contain '@'; not addresses"
+  },
+  "clean": true
+ },
+ "history": {
+  "blobs_scanned": 1206,
+  "by_category": {
+   "reviewed:platform_named": {
+    "blobs": 39,
+    "paths": [
+     "BENCHMARK.md",
+     "CORPUS_AUDIT.md",
+     "E3_REPORT.md",
+     "data/corpus/split_random.json.gz",
+     "data/corpus/split_temporal.json.gz",
+     "research/d2/AUDIT.md",
+     "research/d2/audit.py",
+     "research/e17/PREREG_E17.md",
+     "research/v2/PREREG_V2_P2.md",
+     "uie/corpus/merge_phishing.py",
+     "uie/splits.py"
+    ]
+   },
+   "reviewed:brand_in_md_host": {
+    "blobs": 6,
+    "paths": [
+     "E3_REPORT.md"
+    ]
+   },
+   "reviewed:url_userinfo": {
+    "blobs": 25,
+    "paths": [
+     "research/d2/AUDIT.md",
+     "tests/fixtures_e5_path.json",
+     "tests/fixtures_e7_generate.json",
+     "tests/test_factorization.py",
+     "tests/test_field_scoped_loss.py",
+     "tests/test_gate.py",
+     "tests/test_metrics.py",
+     "tests/test_model.py",
+     "tests/test_tokenizer.py",
+     "tests/test_typicality.py",
+     "uie/factorization.py"
+    ]
+   },
+   "reviewed:private:email": {
+    "blobs": 2,
+    "paths": [
+     "tests/fixtures_e5_path.json",
+     "tests/fixtures_e7_generate.json"
+    ]
+   },
+   "reviewed:bulk_hostnames": {
+    "blobs": 1,
+    "paths": [
+     "tests/fixtures_e7_generate.json"
+    ]
+   },
+   "private:local_path": {
+    "blobs": 60,
+    "paths": [
+     "research/d2/D2_PLAN.md",
+     "research/e5/bias_audit.py",
+     "research/e5/bias_sweep.py",
+     "research/e5/boundary_fit.py",
+     "research/e5/boundary_hazard.py",
+     "research/e5/calibrate.py",
+     "research/e5/calibration.py",
+     "research/e5/d1_separator.py",
+     "research/e5/d2_selection.py",
+     "research/e5/delta_field_eval.py",
+     "research/e5/e6_primary.py",
+     "research/e5/e6_vs_e5.py",
+     "research/e5/gen_seed_control.py",
+     "research/e5/harness.py",
+     "research/e5/hazard_decomp.py",
+     "research/e5/horizon_nll.py",
+     "research/e5/powered_sweep.py",
+     "research/e5/regressions.py",
+     "research/e5/rejudge.py",
+     "research/e5/rejudge_phishing.py",
+     "research/e5/root_causes.py",
+     "research/e5/s1_s3_boundary.py",
+     "research/e5/s3_corrected.py",
+     "research/e5/s4_temperature.py",
+     "research/e5/targeted_bias.py",
+     "research/e5/validate.py",
+     "research/e5/verify_invention.py",
+     "research/e5/verify_premises.py",
+     "research/e7/E7_KAGGLE.md",
+     "research/qry/floor_check.py",
+     "research/qry/n_sweep.py",
+     "research/qry/q1_decoder_emission.py",
+     "research/qry/q2_teacher_forced.py",
+     "research/qry/q2b_attachment.py",
+     "research/qry/q3_1_resolve.py",
+     "research/qry/q3_content.py",
+     "research/qry/q4_selection.py",
+     "research/qry/q5_corpus_tail.py",
+     "research/qry/q6_length_budget.py",
+     "research/qry/q7_hazard.py",
+     "research/qry/q8_exposure.py",
+     "research/qry/r1_sizing.py",
+     "research/s4/arms.py",
+     "research/s4/finish.sh",
+     "research/s4/likelihood.py",
+     "research/s4/overnight.sh",
+     "research/s4/shape_nll.py",
+     "research/tell/ablate.py",
+     "research/tell/ladder.sh",
+     "research/tell/regen.py",
+     "research/tell/regen.sh"
+    ]
+   },
+   "brand_in_md_host": {
+    "blobs": 19,
+    "paths": [
+     "DESIGN.md",
+     "README.md"
+    ]
+   },
+   "phishing_host": {
+    "blobs": 2,
+    "paths": [
+     "data/corpus/split_random.json.gz",
+     "data/corpus/split_temporal.json.gz"
+    ]
+   },
+   "phishing_domain": {
+    "blobs": 7,
+    "paths": [
+     "data/corpus/split_random.json.gz",
+     "data/corpus/split_temporal.json.gz",
+     "research/v2/PREREG_V2_P2.md"
+    ]
+   },
+   "bulk_hostnames": {
+    "blobs": 2,
+    "paths": [
+     "data/corpus/split_random.json.gz",
+     "data/corpus/split_temporal.json.gz"
+    ]
+   },
+   "private:username": {
+    "blobs": 15,
+    "paths": [
+     "research/e5/bias_audit.py",
+     "research/e5/d2_selection.py",
+     "research/e5/delta_field_eval.py",
+     "research/e5/e6_vs_e5.py",
+     "research/e5/harness.py",
+     "research/e5/horizon_nll.py",
+     "research/e5/regressions.py",
+     "research/e5/root_causes.py",
+     "research/e5/s1_s3_boundary.py",
+     "research/e5/validate.py",
+     "research/e5/verify_invention.py",
+     "research/e5/verify_premises.py",
+     "research/s4/arms.py",
+     "research/s4/finish.sh",
+     "research/s4/overnight.sh"
+    ]
+   }
+  }
+ }
+}

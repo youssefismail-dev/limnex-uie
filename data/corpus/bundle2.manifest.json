@@ -1,0 +1,70 @@
+{
+ "corpora": {
+  "name_train": {
+   "rows": 906214,
+   "bytes": 31053435
+  },
+  "name_val": {
+   "rows": 113277,
+   "bytes": 3878422
+  },
+  "structure_train": {
+   "rows": 1648460,
+   "bytes": 75351920
+  },
+  "structure_val": {
+   "rows": 209808,
+   "bytes": 9539534
+  },
+  "phishing_name_train": {
+   "rows": 192652,
+   "bytes": 4763153
+  },
+  "phishing_name_val": {
+   "rows": 24081,
+   "bytes": 596434
+  },
+  "phishing_structure_train": {
+   "rows": 46491,
+   "bytes": 1795402
+  },
+  "phishing_structure_val": {
+   "rows": 5828,
+   "bytes": 213688
+  }
+ },
+ "splits": {
+  "split_random.json.gz": {
+   "key_kind": "domain",
+   "hash": "dac93ca7e6b441ab6288a1ed70a8f699acd403e64d6ab684ff0a0f1c198a17c0",
+   "counts": {
+    "train": 981391,
+    "test": 122675,
+    "val": 122673
+   }
+  },
+  "split_phishing_host.json.gz": {
+   "key_kind": "host",
+   "hash": "7e517b8176ab8e63d9158d0e7312a4d94e4bf8f13a76851e05f86fd4ca3edc1a",
+   "counts": {
+    "train": 192652,
+    "test": 24082,
+    "val": 24081
+   }
+  }
+ },
+ "suffix_table": {
+  "benign": 1232,
+  "phishing": 683
+ },
+ "known_urls_bloom": {
+  "n_added": 14873392,
+  "bytes": 35188207,
+  "expected_error_rate": 0.000115
+ },
+ "tokenizer_contract": {
+  "version": "e6-factorized-head",
+  "note": "E4: structure fields (PTH/QRY/FRG) open ONLY when their body is non-empty. E5: optional <F:domain>/<F:page> frame conditioning (--frame), which disables field-scoped content masking because the model can then tell the two sampling frames apart. Frame is OFF unless --frame is passed, so an E4 run stays bit-identical.",
+  "requires_retrain": true
+ }
+}

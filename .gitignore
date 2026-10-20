@@ -1,0 +1,49 @@
+# Corpora are NEVER committed.
+#
+# This is not only a size concern. Common Crawl's terms do not clearly permit
+# redistributing derived datasets, and the project's answer is to publish the
+# RECIPE rather than the data: a seeded sampler plus pinned crawl IDs lets a
+# stranger rebuild the corpus (the phishing side byte for byte; the Common Crawl side by the
+# same method, not the same sample: REPRODUCE.md 2a). Committing the URLs would quietly
+# undo that decision (DESIGN.md, E0).
+# Exclude the CONTENTS of data/, not the directory itself. Git cannot re-include
+# a file whose parent directory is excluded, so a bare `data/` here would make
+# the manifest exceptions below silently ineffective — and a `!data/` negation
+# over-corrects and admits the entire ~1 GB corpus.
+data/*
+!data/corpus/
+data/corpus/*
+
+# Manifests ARE provenance, not data: they pin crawl IDs, seeds, feed HEADs and
+# content hashes, and they are the recipe the release ships INSTEAD of the URLs.
+!data/corpus/*.manifest.json
+
+# The Common Crawl shard maps the extraction reads (which public suffixes live in which index
+# shard). They are built by network probes that may miss a few shards, so a rebuilt map could
+# differ; they are tracked so level 2a reproduces exactly (D2 step 6). Suffixes only, no URLs.
+!data/corpus/shardmaps/
+
+# Frozen splits are NOT tracked (D2 release audit, research/d2/AUDIT.md): they hold
+# the corpus's registrable domains, real phishing domains among them. They are
+# rebuilt deterministically from the recipe, and their manifests -- rule, seed,
+# counts and content_sha256, no domains -- are tracked in
+# data/corpus/splits.manifest.json, so a rebuilt split is still hash-verified.
+
+# The generated statistics behind BENCHMARK.md — the document is derived from
+# this file rather than transcribed, so the two cannot silently disagree.
+!data/corpus/benchmark_stats.json
+
+# The E1 baseline numbers BENCHMARK.md section 6 is derived from.
+!data/corpus/baseline_e1.json
+
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+build/
+dist/

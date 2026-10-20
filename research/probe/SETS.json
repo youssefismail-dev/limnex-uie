@@ -1,0 +1,71 @@
+{
+ "plan": "research/probe/PROBE_PLAN.md",
+ "seed": 20261017,
+ "per_language": 500,
+ "languages": [
+  "deu",
+  "eng",
+  "fra",
+  "ind",
+  "jpn",
+  "rus",
+  "spa",
+  "zho"
+ ],
+ "chance": 0.125,
+ "available_generic_domains": {
+  "deu": 1186,
+  "eng": 19377,
+  "fra": 1145,
+  "ind": 592,
+  "jpn": 2138,
+  "rus": 749,
+  "spa": 1036,
+  "zho": 1821
+ },
+ "available_all_domains": {
+  "deu": 9835,
+  "eng": 45628,
+  "fra": 5358,
+  "ind": 1115,
+  "jpn": 4570,
+  "rus": 4290,
+  "spa": 4499,
+  "zho": 4576
+ },
+ "sets": {
+  "main": {
+   "file": "data/probe/main.jsonl",
+   "rows": 4000,
+   "sha256": "5b7c75c64c097310fa7d24da77284a636aa03033057e6c9cdf19c6fc13ce75bf",
+   "parts": {
+    "select": 800,
+    "fold4": 640,
+    "fold0": 640,
+    "fold3": 640,
+    "fold2": 640,
+    "fold1": 640
+   },
+   "tld_kind": {
+    "generic": 4000
+   }
+  },
+  "all": {
+   "file": "data/probe/all.jsonl",
+   "rows": 4000,
+   "sha256": "cbff05bf42694ecb6f2cdfa9753b17ca90bb7f392ee3342a7541e49aa195bbd2",
+   "parts": {
+    "select": 800,
+    "fold2": 640,
+    "fold0": 640,
+    "fold1": 640,
+    "fold3": 640,
+    "fold4": 640
+   },
+   "tld_kind": {
+    "country": 2737,
+    "generic": 1263
+   }
+  }
+ }
+}

@@ -1,0 +1,16 @@
+{
+  "collected_at": "2026-08-03T00:19:09Z",
+  "n_records": 354143,
+  "content_sha256": "e37135db3b661fb5b6a8a38870346b374b1f6234e59dc1ba1316b9bb347e55fa",
+  "feeds": [
+    {
+      "name": "openphish",
+      "repo": "https://github.com/openphish/public_feed.git",
+      "head": "48f7a982b2a4ebf679c99457fd5467359323e4c6",
+      "commits": 11934,
+      "urls": 354143,
+      "first_seen_min": "2024-10-12T20:01:09Z",
+      "first_seen_max": "2026-08-03T00:00:08Z"
+    }
+  ]
+}

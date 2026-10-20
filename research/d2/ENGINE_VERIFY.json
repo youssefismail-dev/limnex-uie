@@ -1,0 +1,32 @@
+{
+ "plan": "research/d2/D2_PLAN.md step 4",
+ "n_per_class": 300,
+ "E1_load_verified": true,
+ "E3_tables": {
+  "suffix_table.json": true,
+  "presence_slash_table.json": true
+ },
+ "E2_parity": {
+  "benign": {
+   "identical": true,
+   "n": 300,
+   "seconds": 523
+  },
+  "phishing": {
+   "identical": true,
+   "n": 300,
+   "seconds": 338
+  }
+ },
+ "E4_novelty_screen": {
+  "n": 300,
+  "kept": 295,
+  "removed": {
+   "memorized": 3,
+   "label_too_long": 2
+  },
+  "novelty_checked": true
+ },
+ "E5_score_identical": true,
+ "verdict": "PASS"
+}

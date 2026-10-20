@@ -1,0 +1,5 @@
+# Files pinned by sha256 must reach every checkout byte for byte, on every system: git must not
+# convert their line endings. uie/api.py's ASSET_SHA256 names the exact bytes (the suffix table's
+# are CRLF, as the bundle wrote them on Windows; the state tables' are LF), so a converted copy
+# would fail its own check (found in D2 step 6).
+uie/assets/*.json -text

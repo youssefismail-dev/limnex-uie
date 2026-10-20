@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "limnex-uie"
+version = "0.1.0"
+description = "Limnex URL Intelligence Engine: a generative model of URLs, trained from scratch, for defensive phishing research."
+readme = "README.md"
+requires-python = ">=3.11"
+# Apache-2.0 for the code and the model weights (research/d2/D2_PLAN.md, decision A). Read the
+# README's Responsible Use and No Liability sections; NOTICE must accompany redistributions.
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+
+dependencies = [
+    "torch>=2.1",          # the model
+    "numpy>=1.24",
+    # Pinned: its bundled public suffix list decides each URL's registrable-domain frame, so
+    # another release would silently change how URLs are read and scored.
+    "tldextract==5.3.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/youssefismail-dev/limnex-uie"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pandas>=2.0",         # corpus audits and regression comparisons only
+    # The E3 gate's instruments (uie/evaluation.py, uie/corpus/run_eval.py) and the research
+    # readings: REPRODUCE.md level 2 and the tests need them. Found missing by the D2 clean room.
+    # The published score report was computed with scikit-learn 1.9.0, scipy 1.18.0, numpy 2.4.4.
+    "scikit-learn>=1.5",
+    "scipy>=1.11",
+]
+
+[project.scripts]
+uie = "uie.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["uie*"]
+
+[tool.setuptools.package-data]
+uie = ["assets/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Tests must run without network. The Common Crawl sampler and the feed
+# collector are both exercised against synthetic fixtures and throwaway git
+# repositories, never the live services.
+addopts = "-q"

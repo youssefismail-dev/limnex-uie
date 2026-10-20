@@ -1,0 +1,463 @@
+{
+ "source": "the E17 decode run's PROVENANCE.json: e16_b5 on a Kaggle T4, the run the E3 gate read (research/E3_FINAL_REPORT.md)",
+ "code_commit": "04d5c00085fb927adf58382fda72919071b1d265",
+ "environment": {
+  "torch": "2.11.0+cu128",
+  "python": "3.13.15",
+  "gpu": "Tesla T4",
+  "tldextract": "5.3.1"
+ },
+ "fingerprint": "sha256 of the file's bytes: json.dumps(urls), UTF-8, no trailing newline",
+ "files": {
+  "ctrl_e16_b5_benign_P0Q0_g0.json": {
+   "mode": "control",
+   "label": "benign",
+   "state": "P0Q0",
+   "g": 0,
+   "n": 3000,
+   "seed": 1100920261001,
+   "sha256": "158d3bc83a8d70a52e7c1540bd595b322ceb59c7fb1ac60bdfeef610dc8106e9"
+  },
+  "ctrl_e16_b5_benign_P0Q0_g1.json": {
+   "mode": "control",
+   "label": "benign",
+   "state": "P0Q0",
+   "g": 1,
+   "n": 3000,
+   "seed": 1101920261001,
+   "sha256": "ced7afd0c1af81096a6846dd0092170861518f9fb551d63fa56995445a43241c"
+  },
+  "ctrl_e16_b5_benign_P0Q0_g2.json": {
+   "mode": "control",
+   "label": "benign",
+   "state": "P0Q0",
+   "g": 2,
+   "n": 3000,
+   "seed": 1102920261001,
+   "sha256": "8c54a12ed60943527a31e1d9a5c39fd874b9e88347b0a7dd84f87a95f2833d86"
+  },
+  "ctrl_e16_b5_benign_P0Q0_g3.json": {
+   "mode": "control",
+   "label": "benign",
+   "state": "P0Q0",
+   "g": 3,
+   "n": 3000,
+   "seed": 1103920261001,
+   "sha256": "dad0563a0594f566063bdbf98baedefaf71073980c1bf4ef527cc3ea3270ef6c"
+  },
+  "ctrl_e16_b5_benign_P0Q0_g4.json": {
+   "mode": "control",
+   "label": "benign",
+   "state": "P0Q0",
+   "g": 4,
+   "n": 3000,
+   "seed": 1104920261001,
+   "sha256": "6bcc7ca6d519bd3f4cfe80a5157ee7ff8f58003e95506aecb985efb55f0b5461"
+  },
+  "ctrl_e16_b5_benign_P0Q1_g0.json": {
+   "mode": "control",
+   "label": "benign",
+   "state": "P0Q1",
+   "g": 0,
+   "n": 3000,
+   "seed": 1000920261001,
+   "sha256": "e744207be3f3b67583c9d2d02a309a64a6bd573aaf87029118ef2f66c8ba6a65"
+  },
+  "ctrl_e16_b5_benign_P0Q1_g1.json": {
+   "mode": "control",
+   "label": "benign",
+   "state": "P0Q1",
+   "g": 1,
+   "n": 3000,
+   "seed": 1001920261001,
+   "sha256": "4953422fbb1fcfcc09fb6c5ca5a4553e465f7eb522c4566625dbec45d8359463"
+  },
+  "ctrl_e16_b5_benign_P0Q1_g2.json": {
+   "mode": "control",
+   "label": "benign",
+   "state": "P0Q1",
+   "g": 2,
+   "n": 3000,
+   "seed": 1002920261001,
+   "sha256": "c54026a3073013f1547f28af2e581163030b6c5593bad914d3b89c3eed2108ce"
+  },
+  "ctrl_e16_b5_benign_P0Q1_g3.json": {
+   "mode": "control",
+   "label": "benign",
+   "state": "P0Q1",
+   "g": 3,
+   "n": 3000,
+   "seed": 1003920261001,
+   "sha256": "f020a6f7cdbe152ae2a3dd7b9bd8cf782a6d51d7c7d0c4c401c79c7ce6d7a301"
+  },
+  "ctrl_e16_b5_benign_P0Q1_g4.json": {
+   "mode": "control",
+   "label": "benign",
+   "state": "P0Q1",
+   "g": 4,
+   "n": 3000,
+   "seed": 1004920261001,
+   "sha256": "606cd2a5228d4d6473f908d5eea597308220074106fa3be52a90dc7c959fc0b5"
+  },
+  "ctrl_e16_b5_benign_P1Q0_g0.json": {
+   "mode": "control",
+   "label": "benign",
+   "state": "P1Q0",
+   "g": 0,
+   "n": 3000,
+   "seed": 900920261001,
+   "sha256": "aab4f8e0db975e1b2e98cbde0ce5b2a77afd1956aba489644463740d223b6d47"
+  },
+  "ctrl_e16_b5_benign_P1Q0_g1.json": {
+   "mode": "control",
+   "label": "benign",
+   "state": "P1Q0",
+   "g": 1,
+   "n": 3000,
+   "seed": 901920261001,
+   "sha256": "11d7acd9315cb93567718423b74867389470125405052bd861640bdc9085a8e0"
+  },
+  "ctrl_e16_b5_benign_P1Q0_g2.json": {
+   "mode": "control",
+   "label": "benign",
+   "state": "P1Q0",
+   "g": 2,
+   "n": 3000,
+   "seed": 902920261001,
+   "sha256": "0e5d183ac5f63631125c8ffdb84ab2aef9bc0dc59c4f35454406e2831e6698ea"
+  },
+  "ctrl_e16_b5_benign_P1Q0_g3.json": {
+   "mode": "control",
+   "label": "benign",
+   "state": "P1Q0",
+   "g": 3,
+   "n": 3000,
+   "seed": 903920261001,
+   "sha256": "cbbdb9dc641473a40e8c1f99aa1067f2064a22f3d1df10993aaba5caf1dd67f0"
+  },
+  "ctrl_e16_b5_benign_P1Q0_g4.json": {
+   "mode": "control",
+   "label": "benign",
+   "state": "P1Q0",
+   "g": 4,
+   "n": 3000,
+   "seed": 904920261001,
+   "sha256": "c9b9fd4354d87306b4c91494651e5f425e30183485723733b0115dc9942ea121"
+  },
+  "ctrl_e16_b5_benign_P1Q1_g0.json": {
+   "mode": "control",
+   "label": "benign",
+   "state": "P1Q1",
+   "g": 0,
+   "n": 3000,
+   "seed": 800920261001,
+   "sha256": "69b1e789840a1898f36aa5472ad120f7dfc3965d4c083098788fda7aafe9c870"
+  },
+  "ctrl_e16_b5_benign_P1Q1_g1.json": {
+   "mode": "control",
+   "label": "benign",
+   "state": "P1Q1",
+   "g": 1,
+   "n": 3000,
+   "seed": 801920261001,
+   "sha256": "d9034dddaad09c3ef050380b8f04dfc0a392985bbbbbf06e59caa3bbbb3ce90c"
+  },
+  "ctrl_e16_b5_benign_P1Q1_g2.json": {
+   "mode": "control",
+   "label": "benign",
+   "state": "P1Q1",
+   "g": 2,
+   "n": 3000,
+   "seed": 802920261001,
+   "sha256": "4bc3b1f4fdc28dafcec42cfd86b18d1455acf88eb128527651692d141090c2f9"
+  },
+  "ctrl_e16_b5_benign_P1Q1_g3.json": {
+   "mode": "control",
+   "label": "benign",
+   "state": "P1Q1",
+   "g": 3,
+   "n": 3000,
+   "seed": 803920261001,
+   "sha256": "2d44054db15ada808b7131897d9f314a6413009fdc29ae071903cdf67756e39c"
+  },
+  "ctrl_e16_b5_benign_P1Q1_g4.json": {
+   "mode": "control",
+   "label": "benign",
+   "state": "P1Q1",
+   "g": 4,
+   "n": 3000,
+   "seed": 804920261001,
+   "sha256": "5977d1a58c21b95aea8186c2743cc4659cd6fafd8d4521c4e506e7ca95d9d53b"
+  },
+  "ctrl_e16_b5_phishing_P0Q0_g0.json": {
+   "mode": "control",
+   "label": "phishing",
+   "state": "P0Q0",
+   "g": 0,
+   "n": 3000,
+   "seed": 1500920261001,
+   "sha256": "d7e0d8c3a9ac34531c9ae02954119413408a52a549a7a4a2932a37d4737845ea"
+  },
+  "ctrl_e16_b5_phishing_P0Q0_g1.json": {
+   "mode": "control",
+   "label": "phishing",
+   "state": "P0Q0",
+   "g": 1,
+   "n": 3000,
+   "seed": 1501920261001,
+   "sha256": "5f93588d448532121fff8ba7258d46d07b3aa407397067f762abbe14a6542f8d"
+  },
+  "ctrl_e16_b5_phishing_P0Q0_g2.json": {
+   "mode": "control",
+   "label": "phishing",
+   "state": "P0Q0",
+   "g": 2,
+   "n": 3000,
+   "seed": 1502920261001,
+   "sha256": "621cc5936aef31d8f48a4970110e6c42e4f2da101aa39130eaef1f24f09ef23c"
+  },
+  "ctrl_e16_b5_phishing_P0Q0_g3.json": {
+   "mode": "control",
+   "label": "phishing",
+   "state": "P0Q0",
+   "g": 3,
+   "n": 3000,
+   "seed": 1503920261001,
+   "sha256": "c00f0c365ea5147cf7321f0cc4f6ea478c82a518e428a69062c19fbfbab8ca29"
+  },
+  "ctrl_e16_b5_phishing_P0Q0_g4.json": {
+   "mode": "control",
+   "label": "phishing",
+   "state": "P0Q0",
+   "g": 4,
+   "n": 3000,
+   "seed": 1504920261001,
+   "sha256": "3a93d7b871d54f8c130f11513593da3599c7b2c26313e9d5fd3eccd29f8015e4"
+  },
+  "ctrl_e16_b5_phishing_P0Q1_g0.json": {
+   "mode": "control",
+   "label": "phishing",
+   "state": "P0Q1",
+   "g": 0,
+   "n": 1000,
+   "seed": 1400920261001,
+   "sha256": "79e51ba6ea7e0141445de6663de969c6784fd9dec3a2ddca4965b74ca34cba30"
+  },
+  "ctrl_e16_b5_phishing_P0Q1_g1.json": {
+   "mode": "control",
+   "label": "phishing",
+   "state": "P0Q1",
+   "g": 1,
+   "n": 1000,
+   "seed": 1401920261001,
+   "sha256": "b141d91c12a5ac7fc465018a9655e7c3bb6a15216bc6ee8b148cc8223d4709c1"
+  },
+  "ctrl_e16_b5_phishing_P0Q1_g2.json": {
+   "mode": "control",
+   "label": "phishing",
+   "state": "P0Q1",
+   "g": 2,
+   "n": 1000,
+   "seed": 1402920261001,
+   "sha256": "0d5731a9c3e32bd7d4996077a149f4a2aab83583a80e249e2a5b9478b6adbf81"
+  },
+  "ctrl_e16_b5_phishing_P0Q1_g3.json": {
+   "mode": "control",
+   "label": "phishing",
+   "state": "P0Q1",
+   "g": 3,
+   "n": 1000,
+   "seed": 1403920261001,
+   "sha256": "2e0edd8f7fd4c47c9f9edfed7fd24b9ffced5845b9cc2dc49bda6d96b8253c8c"
+  },
+  "ctrl_e16_b5_phishing_P0Q1_g4.json": {
+   "mode": "control",
+   "label": "phishing",
+   "state": "P0Q1",
+   "g": 4,
+   "n": 1000,
+   "seed": 1404920261001,
+   "sha256": "bdd2fe7f467b2bee63ee3b74103d38d2dfebe283e7e066b1baefb4c8748be641"
+  },
+  "ctrl_e16_b5_phishing_P1Q0_g0.json": {
+   "mode": "control",
+   "label": "phishing",
+   "state": "P1Q0",
+   "g": 0,
+   "n": 3000,
+   "seed": 1300920261001,
+   "sha256": "62eaed1fb711617cfcbafa625cbe024ad7c2b2f071993ef75749c4e405659997"
+  },
+  "ctrl_e16_b5_phishing_P1Q0_g1.json": {
+   "mode": "control",
+   "label": "phishing",
+   "state": "P1Q0",
+   "g": 1,
+   "n": 3000,
+   "seed": 1301920261001,
+   "sha256": "e6b1d3b3f41f7d5d7ed943b4f02c4a669a6fc8ed60486d7ca4dda1503f0a0ad1"
+  },
+  "ctrl_e16_b5_phishing_P1Q0_g2.json": {
+   "mode": "control",
+   "label": "phishing",
+   "state": "P1Q0",
+   "g": 2,
+   "n": 3000,
+   "seed": 1302920261001,
+   "sha256": "09212a147c405d0f16e0bd1475a8fe41744ee2c8aa590f9661c75ecf901cf7e0"
+  },
+  "ctrl_e16_b5_phishing_P1Q0_g3.json": {
+   "mode": "control",
+   "label": "phishing",
+   "state": "P1Q0",
+   "g": 3,
+   "n": 3000,
+   "seed": 1303920261001,
+   "sha256": "745b730dc699bb41e9ed1bb6fbf025ef13c2aa2c21619b61cf9b8c7c7470d27c"
+  },
+  "ctrl_e16_b5_phishing_P1Q0_g4.json": {
+   "mode": "control",
+   "label": "phishing",
+   "state": "P1Q0",
+   "g": 4,
+   "n": 3000,
+   "seed": 1304920261001,
+   "sha256": "98dfd036c1ed3bb0fdbfcef3b3cd4916300d61049e508c8dfc7182d0ea5b8339"
+  },
+  "ctrl_e16_b5_phishing_P1Q1_g0.json": {
+   "mode": "control",
+   "label": "phishing",
+   "state": "P1Q1",
+   "g": 0,
+   "n": 1000,
+   "seed": 1200920261001,
+   "sha256": "753df3cf68b4864fa36a42931dee9373ee6f9a152b2f2979d159bd3beb6cfbd2"
+  },
+  "ctrl_e16_b5_phishing_P1Q1_g1.json": {
+   "mode": "control",
+   "label": "phishing",
+   "state": "P1Q1",
+   "g": 1,
+   "n": 1000,
+   "seed": 1201920261001,
+   "sha256": "58bffd6e438be54a9095b948841c080d1f3950df3ebbd76ade93d779ba7b7c96"
+  },
+  "ctrl_e16_b5_phishing_P1Q1_g2.json": {
+   "mode": "control",
+   "label": "phishing",
+   "state": "P1Q1",
+   "g": 2,
+   "n": 1000,
+   "seed": 1202920261001,
+   "sha256": "fa4a0263c5155572947b65aaba7c98d768ad102624f29f948ac7144dc470deec"
+  },
+  "ctrl_e16_b5_phishing_P1Q1_g3.json": {
+   "mode": "control",
+   "label": "phishing",
+   "state": "P1Q1",
+   "g": 3,
+   "n": 1000,
+   "seed": 1203920261001,
+   "sha256": "637ffd48a97f93d609c9794f573297efd7beed4c24db7a477bd609b193579487"
+  },
+  "ctrl_e16_b5_phishing_P1Q1_g4.json": {
+   "mode": "control",
+   "label": "phishing",
+   "state": "P1Q1",
+   "g": 4,
+   "n": 1000,
+   "seed": 1204920261001,
+   "sha256": "c19094027712735ec57cd3aaf6fd51deb51e37869d8b634077547efe8ba79212"
+  },
+  "free_e16_b5_benign_g0.json": {
+   "mode": "free",
+   "label": "benign",
+   "state": null,
+   "g": 0,
+   "n": 8000,
+   "seed": 20260807,
+   "sha256": "70ff0581db8db14f76f16c71fdae14739f132c6ab6f657565329ebf8b36c3fc2"
+  },
+  "free_e16_b5_benign_g1.json": {
+   "mode": "free",
+   "label": "benign",
+   "state": null,
+   "g": 1,
+   "n": 8000,
+   "seed": 20261807,
+   "sha256": "259f0062d4e27faac8533d7e27625d24ddcf373d3b915fe2100fb341f0389df6"
+  },
+  "free_e16_b5_benign_g2.json": {
+   "mode": "free",
+   "label": "benign",
+   "state": null,
+   "g": 2,
+   "n": 8000,
+   "seed": 20262807,
+   "sha256": "628718213240cd885a58018d6952c061578ee4a90eb462c0717d0fb63b48578a"
+  },
+  "free_e16_b5_benign_g3.json": {
+   "mode": "free",
+   "label": "benign",
+   "state": null,
+   "g": 3,
+   "n": 8000,
+   "seed": 20263807,
+   "sha256": "adfca2598ee51ede8d2950c2a15a4a03e5255750afd9edbd1caf247005a3c80f"
+  },
+  "free_e16_b5_benign_g4.json": {
+   "mode": "free",
+   "label": "benign",
+   "state": null,
+   "g": 4,
+   "n": 8000,
+   "seed": 20264807,
+   "sha256": "f20b99ff72487439671b1df415f3c34d6d577372796642fd8aadd905fa087119"
+  },
+  "free_e16_b5_phishing_g0.json": {
+   "mode": "free",
+   "label": "phishing",
+   "state": null,
+   "g": 0,
+   "n": 8000,
+   "seed": 20260807,
+   "sha256": "758a08cd0f5e98ee5309c8c6674ce79ee33836ecb2aed5302b1f7b7c77992605"
+  },
+  "free_e16_b5_phishing_g1.json": {
+   "mode": "free",
+   "label": "phishing",
+   "state": null,
+   "g": 1,
+   "n": 8000,
+   "seed": 20261807,
+   "sha256": "d6f6145e0b849bfab5e96fb43ea779e64b955b225dad06173d8629fe7204012e"
+  },
+  "free_e16_b5_phishing_g2.json": {
+   "mode": "free",
+   "label": "phishing",
+   "state": null,
+   "g": 2,
+   "n": 8000,
+   "seed": 20262807,
+   "sha256": "43f3e0588ec4dadd216574e3a09798ec82a2d92e08a45f476a7fb6cf8d63bd0e"
+  },
+  "free_e16_b5_phishing_g3.json": {
+   "mode": "free",
+   "label": "phishing",
+   "state": null,
+   "g": 3,
+   "n": 8000,
+   "seed": 20263807,
+   "sha256": "7e94e961a014a0d281f1bd2ab3b3c49a64dd6c247ffe165eed43e97293806fcf"
+  },
+  "free_e16_b5_phishing_g4.json": {
+   "mode": "free",
+   "label": "phishing",
+   "state": null,
+   "g": 4,
+   "n": 8000,
+   "seed": 20264807,
+   "sha256": "d7a111a175bba45e01b0840408f0f4f6b694cc9ac4fa276830224fa9f46e5f08"
+  }
+ }
+}

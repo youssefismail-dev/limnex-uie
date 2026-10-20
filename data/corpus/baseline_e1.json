@@ -1,0 +1,151 @@
+{
+ "order": 5,
+ "seed": 20260803,
+ "fit_cap": 150000,
+ "n_fit": 300000,
+ "fit_seconds": 38.1,
+ "held_out": {
+  "benign": {
+   "n": 20000,
+   "perplexity": 22.0505,
+   "by_suffix_kind": {
+    "cctld": 24.1238,
+    "legacy_gtld": 20.3689,
+    "new_gtld": 21.307
+   }
+  },
+  "phishing": {
+   "n": 20000,
+   "perplexity": 18.8336,
+   "by_suffix_kind": {
+    "cctld": 18.1718,
+    "legacy_gtld": 19.851,
+    "new_gtld": 18.6172
+   }
+  }
+ },
+ "generation": {
+  "benign": {
+   "n": 20000,
+   "gate_pass_rate": 0.9967,
+   "novelty_rate": 1.0,
+   "rejections": {
+    "label_too_long": 56,
+    "duplicate_in_batch": 11
+   },
+   "distribution_vs_real": {
+    "n_real": 20000,
+    "n_generated": 20000,
+    "delta_bare_homepage_rate": -0.00015,
+    "delta_query_rate": 0.0159,
+    "delta_mean_path_depth": 0.4141,
+    "delta_mean_subdomain_depth": -0.0882,
+    "delta_mean_url_length": -0.737,
+    "delta_mean_label_entropy": -0.4771,
+    "tv_path_depth": 0.2109,
+    "tv_suffix": 0.15465,
+    "js_suffix": 0.06692,
+    "suffix_coverage": 0.9645,
+    "novel_suffixes": [
+     "a.se",
+     "ac.at",
+     "ac.il",
+     "ac.ir",
+     "ac.jp",
+     "ac.rs",
+     "ac.se",
+     "ac.th",
+     "ac.uk",
+     "ai",
+     "at.it",
+     "ba.it",
+     "c.se",
+     "cf",
+     "cn.it",
+     "co.il",
+     "co.ls",
+     "co.ug",
+     "com.qa",
+     "com.tw"
+    ]
+   },
+   "examples": [
+    "http://eooosraatmmtytuoahltrn.com/uycfl/ni-hmt5-/eboagroyt-Ac?%Tia%%ABshse-t4+reba&A=d5cN2pia=Fo",
+    "https://a.fm/yee.ecd-m5iei6ut1lti6ansinsqpT%onke9ynilgIute-g2wkio-%2vse--mmcnrcbh-y-tnc-yoatgag6wnai-nw/",
+    "http://awr.oudlisyrroinaacogiriwwigdhmfowloenr.com/1o%sawvn?D07r%4fw5Co%52frorefo%=1DDtz9F%_x9cf0rq%ve2BBh%f%gde%tp2Ceacd&543=3reetn4B2n%DEei%ecL+E0eKsnelnl4masp%",
+    "http://iciseshd.cz/-%x%cnifE?m5mt24C5i1eEhMai=Tua%e6ia5B=h=e33DyAg58ld13&56t8dfu=%+&EBE32n%lii8eai=4eg_m2t3pf%ena%0dc0afo%1u3w%s24Svt=loh=%sas0rcO+do%n%%k0.gt%D&d+a3e&M._i&uiF6fdF5Nagm5Xae8teotDdpDi",
+    "https://arr.net/7ymatnenzaoE6gsVyiellr9gy/ue%deolml%as-ny%-8innu-zEan-0-hsmf_tsant-",
+    "https://utrcecwhtmiedbennia.com.au/60ailtn/-alke//ctcas7otir%/cy0ne3wie",
+    "http://n7di.com/_u/ioa%Fnh0le-8esO14hrpese/pcjhrca8c76erBs-/9u9xic-eiaFa-sp/siieltFtutk/ol1eedoosj4rrPnfromw2sor2tr7u9zcc1tg0K7-0oga/Etjc/2cn0necniEamcn/-8n/nn6nhaisooh-3eiio8aclts8o",
+    "http://pw.csm.ru/b/ak%d%k%pnFbc1lv9r/fualrtus"
+   ]
+  },
+  "phishing": {
+   "n": 20000,
+   "gate_pass_rate": 0.988,
+   "novelty_rate": 1.0,
+   "rejections": {
+    "label_too_long": 172,
+    "duplicate_in_batch": 39,
+    "host_too_long": 43
+   },
+   "distribution_vs_real": {
+    "n_real": 20000,
+    "n_generated": 20000,
+    "delta_bare_homepage_rate": -0.42205,
+    "delta_query_rate": 0.00215,
+    "delta_mean_path_depth": 0.4607,
+    "delta_mean_subdomain_depth": -0.1842,
+    "delta_mean_url_length": 0.295,
+    "delta_mean_label_entropy": -0.4106,
+    "tv_path_depth": 0.43095,
+    "tv_suffix": 0.30725,
+    "js_suffix": 0.16248,
+    "suffix_coverage": 0.76491,
+    "novel_suffixes": [
+     "ac.bd",
+     "adv.br",
+     "al",
+     "am",
+     "ao",
+     "beauty",
+     "beer",
+     "bid",
+     "blog",
+     "broker",
+     "bz",
+     "cards",
+     "careers",
+     "cash",
+     "cat",
+     "cd",
+     "ceo",
+     "city",
+     "co.ao",
+     "co.io"
+    ]
+   },
+   "examples": [
+    "http://wzein2ol.dooptra5tlltyvwo-fiurn.com/eis2",
+    "https://ae.eksrzv.io/",
+    "https://cdtoun-u9-tnii-cblakf4sohces.top/euta.",
+    "http://romgayolnibwvh-i7xmlp.hfg-obnilcwuanvlbeptlptsse.io/",
+    "https://-.host/iiPkpMLe",
+    "http://f2zreukelbyoem.app/jx.",
+    "http://8oh05r.owcihsyrsohna-boeirixxgecfleoxkocmr.com/rBxwk",
+    "https://anxaer.com/30isorfip"
+   ]
+  }
+ },
+ "discrimination": {
+  "benign": {
+   "n": 5000,
+   "accuracy": 0.9126
+  },
+  "phishing": {
+   "n": 5000,
+   "accuracy": 0.8582
+  },
+  "balanced_accuracy": 0.8854
+ }
+}

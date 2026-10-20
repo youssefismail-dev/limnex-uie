@@ -1,0 +1,214 @@
+{
+  "built_at": "2026-08-03T02:08:32Z",
+  "seed": 20260803,
+  "blocks_per_crawl": 200,
+  "eras": [
+    {
+      "name": "live",
+      "rationale": "contemporaneous with the OpenPhish live feed (2024-10 onward)",
+      "crawls": [
+        "CC-MAIN-2024-42",
+        "CC-MAIN-2024-51",
+        "CC-MAIN-2025-13",
+        "CC-MAIN-2025-26",
+        "CC-MAIN-2025-38",
+        "CC-MAIN-2025-51",
+        "CC-MAIN-2026-12",
+        "CC-MAIN-2026-30"
+      ]
+    },
+    {
+      "name": "historical",
+      "rationale": "contemporaneous with the archived phishing corpora (~2019-2022)",
+      "crawls": [
+        "CC-MAIN-2019-04",
+        "CC-MAIN-2019-30",
+        "CC-MAIN-2019-51",
+        "CC-MAIN-2020-24",
+        "CC-MAIN-2020-50",
+        "CC-MAIN-2021-25",
+        "CC-MAIN-2021-49",
+        "CC-MAIN-2022-49"
+      ]
+    }
+  ],
+  "shards": [
+    {
+      "era": "live",
+      "crawl": "CC-MAIN-2024-42",
+      "file": "live__CC-MAIN-2024-42.jsonl",
+      "urls": 448352,
+      "blocks": null,
+      "shards_hit": null,
+      "seconds": 0.0,
+      "sha256": "20decf0e1421404bdd57e714a042af78cd115bd0ececb13211a2036f43210335",
+      "reused": true
+    },
+    {
+      "era": "live",
+      "crawl": "CC-MAIN-2024-51",
+      "file": "live__CC-MAIN-2024-51.jsonl",
+      "urls": 435662,
+      "blocks": null,
+      "shards_hit": null,
+      "seconds": 0.0,
+      "sha256": "7698b99a6102412b989557da74bc2a653fcf0051024e84835c0aadedb59b34a1",
+      "reused": true
+    },
+    {
+      "era": "live",
+      "crawl": "CC-MAIN-2025-13",
+      "file": "live__CC-MAIN-2025-13.jsonl",
+      "urls": 427667,
+      "blocks": null,
+      "shards_hit": null,
+      "seconds": 0.0,
+      "sha256": "ced1c5b2601c0f703ce78007a4249a382aac61a9cd491fed686fdfa3acc70f1b",
+      "reused": true
+    },
+    {
+      "era": "live",
+      "crawl": "CC-MAIN-2025-26",
+      "file": "live__CC-MAIN-2025-26.jsonl",
+      "urls": 422508,
+      "blocks": null,
+      "shards_hit": null,
+      "seconds": 0.0,
+      "sha256": "fd9f6ed14e67f4eed9522604aaa9a15f6f010c7bcb5d55acc400861466c05a09",
+      "reused": true
+    },
+    {
+      "era": "live",
+      "crawl": "CC-MAIN-2025-38",
+      "file": "live__CC-MAIN-2025-38.jsonl",
+      "urls": 434807,
+      "blocks": null,
+      "shards_hit": null,
+      "seconds": 0.0,
+      "sha256": "b0572a7a81963d8bf16c5caad8ccf5f64d1852ff5e7ca4d14b1841fe68a3b96e",
+      "reused": true
+    },
+    {
+      "era": "live",
+      "crawl": "CC-MAIN-2025-51",
+      "file": "live__CC-MAIN-2025-51.jsonl",
+      "urls": 448761,
+      "blocks": null,
+      "shards_hit": null,
+      "seconds": 0.0,
+      "sha256": "04b786a9b90a942ed2fa3a915dff3e4a1de0d90ffaa5e826dec77a7d918e97b5",
+      "reused": true
+    },
+    {
+      "era": "live",
+      "crawl": "CC-MAIN-2026-12",
+      "file": "live__CC-MAIN-2026-12.jsonl",
+      "urls": 447745,
+      "blocks": null,
+      "shards_hit": null,
+      "seconds": 0.0,
+      "sha256": "120203c37cc165b201514228a4e1450f9cb9817b6373687eb1ec43c777c549b0",
+      "reused": true
+    },
+    {
+      "era": "live",
+      "crawl": "CC-MAIN-2026-30",
+      "file": "live__CC-MAIN-2026-30.jsonl",
+      "urls": 370858,
+      "blocks": null,
+      "shards_hit": null,
+      "seconds": 0.0,
+      "sha256": "3089f1c6b0ea9964ddcabe48b2933ba5ca679311a6f21839c581023bb88054df",
+      "reused": true
+    },
+    {
+      "era": "historical",
+      "crawl": "CC-MAIN-2019-04",
+      "file": "historical__CC-MAIN-2019-04.jsonl",
+      "urls": 327982,
+      "blocks": null,
+      "shards_hit": null,
+      "seconds": 0.0,
+      "sha256": "d67d6ea8892d86a2ffe3721495c1bfdf613fda1843a8f40f8bb13ac83cb710a4",
+      "reused": true
+    },
+    {
+      "era": "historical",
+      "crawl": "CC-MAIN-2019-30",
+      "file": "historical__CC-MAIN-2019-30.jsonl",
+      "urls": 368362,
+      "blocks": null,
+      "shards_hit": null,
+      "seconds": 0.0,
+      "sha256": "148fac99d124f4d90ab355e1c473d3c42e99914873c7a1fbd9cd697566d25db2",
+      "reused": true
+    },
+    {
+      "era": "historical",
+      "crawl": "CC-MAIN-2019-51",
+      "file": "historical__CC-MAIN-2019-51.jsonl",
+      "urls": 382927,
+      "blocks": null,
+      "shards_hit": null,
+      "seconds": 0.0,
+      "sha256": "39bc967fbd9736503ce3abda931fbd16fefdce4d4a68913761da90afe5743016",
+      "reused": true
+    },
+    {
+      "era": "historical",
+      "crawl": "CC-MAIN-2020-24",
+      "file": "historical__CC-MAIN-2020-24.jsonl",
+      "urls": 356174,
+      "blocks": null,
+      "shards_hit": null,
+      "seconds": 0.0,
+      "sha256": "454abfa9c2e457d34aba7da15df7adb9150c7245be35e99de3a01420b466eb94",
+      "reused": true
+    },
+    {
+      "era": "historical",
+      "crawl": "CC-MAIN-2020-50",
+      "file": "historical__CC-MAIN-2020-50.jsonl",
+      "urls": 402644,
+      "blocks": null,
+      "shards_hit": null,
+      "seconds": 0.0,
+      "sha256": "41c0b6bba1e0f95aa096b8f57ef677a88e548970ed78840566117b8e63432c17",
+      "reused": true
+    },
+    {
+      "era": "historical",
+      "crawl": "CC-MAIN-2021-25",
+      "file": "historical__CC-MAIN-2021-25.jsonl",
+      "urls": 414685,
+      "blocks": null,
+      "shards_hit": null,
+      "seconds": 0.0,
+      "sha256": "144879dc4b9ada3ff5f9c5c8079de3933cd63084c82f7b1ffcae4290c4b671b2",
+      "reused": true
+    },
+    {
+      "era": "historical",
+      "crawl": "CC-MAIN-2021-49",
+      "file": "historical__CC-MAIN-2021-49.jsonl",
+      "urls": 369986,
+      "blocks": null,
+      "shards_hit": null,
+      "seconds": 0.0,
+      "sha256": "fb70eac4d60e0dc86ec0c195560c8988fe0012efd94fdc65d0326d916d7e3634",
+      "reused": true
+    },
+    {
+      "era": "historical",
+      "crawl": "CC-MAIN-2022-49",
+      "file": "historical__CC-MAIN-2022-49.jsonl",
+      "urls": 437327,
+      "blocks": null,
+      "shards_hit": null,
+      "seconds": 0.0,
+      "sha256": "6ec737446781822a2cee6e5662323d76482e1b9c8a487e589231bbac605fa9fd",
+      "reused": true
+    }
+  ],
+  "total_urls": 6496447
+}

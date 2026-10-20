@@ -1,0 +1,1718 @@
+{
+ "captured_from": "5c13f666a2faea9ab45fc3ffdb1a8acb331dc897",
+ "note": "pre-HC1 generate() on the E7 path; tiny_model(e7_tok()) from tests/test_e7_fields.py",
+ "cases": [
+  {
+   "fields": null,
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1000,
+   "urls": [
+    "i/w://sd@/ro1-dpxtduv?",
+    "://ombw-r/wi2aurw/ls=kwlgh/mho1b-77i.nss=w#tgcpx/",
+    "://@clpca.fr/=7#s",
+    "w://y@/7i?#vi",
+    "b/i.?pgilfwt#",
+    "o://sre-:d=rh1/k"
+   ]
+  },
+  {
+   "fields": null,
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1001,
+   "urls": [
+    "&wn://cy@/.2sr=17&omgd",
+    "rvvts2dgnb://",
+    "poxlk&://y@?x2#hoy",
+    "gu://vci@1/wwl2k7/.f#",
+    "",
+    "2"
+   ]
+  },
+  {
+   "fields": null,
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1002,
+   "urls": [
+    "s://y.w.nb.ivtg/aybfi=1s.rmr./xc.y/?",
+    "://felfn@mb.7t1g1.fimpg/?7xrmtt",
+    "l@7bmg:om.=udy2xh/beoiuev-g&-/&ytaseben#/",
+    "u./#c",
+    "://yea@hsck:=u/g?i",
+    "://x/om@tut.vw&.m/?a"
+   ]
+  },
+  {
+   "fields": null,
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1003,
+   "urls": [
+    "vtoiys2m2.=://ln?.27#k=/ty",
+    "2bs@./.com:.n?.-",
+    "://gfphir@:mo./om#g",
+    "com/u",
+    "@st.com:ay/=h?bic1",
+    "://#.cbi"
+   ]
+  },
+  {
+   "fields": null,
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1004,
+   "urls": [
+    "b://t7nym/@n.rr1&1v:.",
+    ".dvb",
+    "@vilka?",
+    "",
+    "m7/2ep?pdplfbv2um=atm.a-dah",
+    "nx@cr21&v?"
+   ]
+  },
+  {
+   "fields": null,
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1005,
+   "urls": [
+    "k-nn@",
+    "rth@sd.com:-i1/?r#17i",
+    "/-",
+    "",
+    "-1c://n2dnt.rc-r.2m.com/g/2?lrb&#",
+    ""
+   ]
+  },
+  {
+   "fields": null,
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1006,
+   "urls": [
+    "eif://c@lah.uw:/=lhhn",
+    "7ruwinx://ev@1k.usadic.o:=gnb/n?i#sg",
+    "w://pirn?",
+    "t://yo2cd2/m&:igd/u?s&xrgrfpgwp1#",
+    "euwp://?",
+    "b.&md://?"
+   ]
+  },
+  {
+   "fields": null,
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1007,
+   "urls": [
+    "://@kmri1a.gfckt-.com:io/v#uvbxisw",
+    "cxa@/7o?fofdcv1idx#2d.",
+    "",
+    "/2cimwumoft/v?nn",
+    "hd@1.com//?=mk.fb7rbg=",
+    "mo2hfasmm@2.en&2m1uma.com:1v#ub"
+   ]
+  },
+  {
+   "fields": null,
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1008,
+   "urls": [
+    "ga://2b@..fkk=tm1/m&-om/ehnxig?s./l#",
+    "ui&=d.2hb://@eumccsi.m..1ir/?nvcu#&g",
+    "ifm://&du27f.1hpno17s1oo/?#m",
+    "/-&ap-tigls.dww?k#l",
+    "c-c",
+    "e.ku=stcck1@2gpalagu7v-pi=.kuv2xstcx/bg=ug#"
+   ]
+  },
+  {
+   "fields": null,
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1009,
+   "urls": [
+    "owebp=-bam@-ls=y-kg.=/ok?pd#ioeva.",
+    ":&dr=#n",
+    "",
+    "bw=dlsd:///p.cd/:gcngo./2k2i?-#=",
+    "://c.bxmug./i2/vospg7cspn22/.-/?l",
+    ""
+   ]
+  },
+  {
+   "fields": null,
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1010,
+   "urls": [
+    "-b/@2:/m&l/elf?#",
+    "p://@s.pa2ba/c7nbsuwo.v/?&w=",
+    "?hto",
+    "",
+    "rrg2/pw",
+    ".lry-://#"
+   ]
+  },
+  {
+   "fields": null,
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1011,
+   "urls": [
+    "y@.p.l7.com:rp=cku.ianind2yxl/gep1?m#",
+    "lnfl://yki@.ita.-x.com#",
+    "?p#n.n",
+    "@ms#",
+    "e://woycremewc.com?ng#op",
+    ".l://@tbgc.&-.com:=h/e/v?"
+   ]
+  },
+  {
+   "fields": null,
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1012,
+   "urls": [
+    "t://dm/fnsekthvfgyuci@i/dokf#r",
+    "y@dex1cbalfh.tc.cksmv/p=.o=/-2p=?g",
+    "@/n.r/x..l:lu/2=ab?h2-&b-c#a",
+    "",
+    "ntya@/?",
+    "/yu"
+   ]
+  },
+  {
+   "fields": null,
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1013,
+   "urls": [
+    "",
+    "aiybu1anocr://lk.com:2xb?avt-#n",
+    "pnhkx/1.com/&sapasa7ae?7",
+    ".y://v@e.-rab.kcbf.com:.k/",
+    "&ketekpoh/://s@:m1id/uyo#lbtlkilfn",
+    "ne&ds.&xep://h/koghkvrx?#oa&-mt"
+   ]
+  },
+  {
+   "fields": null,
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1014,
+   "urls": [
+    "nm=v&r&",
+    "@muhf.v.a7.mks7/17rypn=",
+    "",
+    "ilkao&n&a.natigum-w=g.oxghpd://n#ir/ib",
+    "la11://elg..kgop.na:-?2oc",
+    ":1rp=-2p."
+   ]
+  },
+  {
+   "fields": null,
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1015,
+   "urls": [
+    "1pyiwpgc/c?f#h1oo7rh",
+    "f://?.hs/r-de",
+    "",
+    "://1@#",
+    "htk.com?as",
+    "7.@fa.apkeb=gfcp2/sgpbw?"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true
+   },
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1016,
+   "urls": [
+    "",
+    "l1:i#hn&o",
+    "://ft.@wr/ucylm-y1l..hnt/em&wnbolesn?",
+    "",
+    "ca://fdg@ww.-r:2cb-/1bxaa?",
+    "7://m-.it.-svk../7u.s/xr?#g"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true
+   },
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1017,
+   "urls": [
+    ".@tl=e/f.f2",
+    "://mtd@howrm-gfcdlg:ub-x1k#1fl",
+    ":n/&r?#-ah.t",
+    "t://#1",
+    "",
+    "dr://cwu.com:&b.cnhhsk?su.x#v.efe"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true
+   },
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1018,
+   "urls": [
+    "#ob",
+    "",
+    "wvn-@pmb2=-#apw=",
+    "a77ntkowwmroc://o@:ixb?c#/xf",
+    "2u://o@m./v.=y:nla/f77#x",
+    ".xh@-gnph.tsc?/#oefuu"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true
+   },
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1019,
+   "urls": [
+    "ofat1h@wboi-hn:uenw&/f&gwl#/",
+    "://b.com/1npy?v#",
+    "://hcpshiawn@cxrrhaebs77xt1&km/#og",
+    "u-n://com:f./yu=ym#",
+    "://e@td.v.com/?/hg",
+    "?"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true
+   },
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1020,
+   "urls": [
+    "&u://aeap@livnr7:tf/ocm-#",
+    "27&e://fx7@igy.eokgxhl-faighteyd:kvh&wl#",
+    "://",
+    "@v1.gf/prwrb",
+    "",
+    "t"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true
+   },
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1021,
+   "urls": [
+    "-la2k://h/yk2@/?us",
+    "h@u#h.",
+    "lca/oy://u=oeo@d/?#.",
+    "://g1&.s.=s/1:f/div/ag7?-#",
+    "",
+    "?n="
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true
+   },
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1022,
+   "urls": [
+    "1@ghg.kwe/=xufc2b-u.1-7m.hliu2:n#c-twxca&",
+    "xgl://fn2c.mrl@t/x?",
+    "",
+    "e.2.bcdn:sg?h#-vn&kl/mo",
+    "/mh2mkc&n://7pdro",
+    "://o.d?swr7mc"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true
+   },
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1023,
+   "urls": [
+    "o://m/egtr1@1.1i.w.m.com?rdh#y",
+    "com",
+    "gyt-pvfo://to&#r-oe",
+    "?i",
+    "yc2tws://h@g.b/?kf1#-inh",
+    "d://.lf.=.rioocvgnwh.com/w#o=yutc"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true
+   },
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1024,
+   "urls": [
+    "bw://xxpuk/bpmbl-x/h.dm.o/lk?",
+    "arl-r://#y",
+    "",
+    "&://@rnifv?hl",
+    "://d.w.flx-a-mwe.dvco:kyy=&/?m.",
+    "v&11u/i"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true
+   },
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1025,
+   "urls": [
+    "",
+    "://re.com:dv-yi?-u.=.s-#noe",
+    "@h1./.nkv-t/.com:sr/=&?",
+    "im7tihnff=xc@2-.2imad7u.com?",
+    "ydy://w.1f.com?ttpm2",
+    "@swhbe.rh7v.hp=on2o2.com:bdwbe/&k?bpsm#"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true
+   },
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1026,
+   "urls": [
+    "://",
+    "d1&wv-kkhd.cmi&ut:rnyshoyxl/evsf#",
+    "y=put.=o2ccb7mgykk/7gaaaa#c",
+    "g.2mtyi./b",
+    ".fgviiim://rmty@2cfff/",
+    "r.&h"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true
+   },
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1027,
+   "urls": [
+    "",
+    "rc?to",
+    "bbyed/&hhnd://gyh:-/7kkec?ga",
+    "://kc7vldss.com?ap/mo#=bwh",
+    "hge://s.com/",
+    "mu-k@:w?"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true
+   },
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1028,
+   "urls": [
+    "o@ha",
+    "b=&2b&nv@/hbv=kovo?",
+    "@#n",
+    "&w/2yw-://ma-y:l2/nng&?7c-yictb-hfky",
+    "c@&:v/",
+    "=ci.da"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true
+   },
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1029,
+   "urls": [
+    "://s.sxmci.brykha.com",
+    "2@y.2k.pd.com/u?.tb#v",
+    "m://@dlrb.com:o/l?",
+    "",
+    "",
+    "@ry.l:/1o1o/d#"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true
+   },
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1030,
+   "urls": [
+    "uk1ev2at.g://",
+    "ym&&inhkf@x2sp-=slt.p:ylfd/-fpu?axo/=c&#.n27yd",
+    "?y#g",
+    "?n1x7x",
+    "://7@w.o/uk?x#",
+    "/mhtv://g@cyg.uk.ek2:1/ruc#e1.sokky="
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true
+   },
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1031,
+   "urls": [
+    "",
+    "g&-frsbr@",
+    "nwvcuip2-://",
+    "/obr2owoml/fk?/se1a",
+    "&ktc://@:2.klafkvo?-rbp1.l",
+    "xe://dm.@c.com/hwa?tyt&#"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": true
+   },
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1032,
+   "urls": [
+    "k.fepus:=/ufhf&b?.v",
+    "",
+    "@fcdm?klr-#.s&t",
+    "t://rmh/e/taxg=.1kv=dy#d1",
+    "?l7s/#ltry",
+    "://n@.=h.b/d?/va#"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": true
+   },
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1033,
+   "urls": [
+    "un.com:v?so1s1-#/7",
+    "@vx.:ydh-/xvs&21h-?&pe-=s#",
+    "kl://l.yk@:1-ti.p=/ey/?",
+    "o7ot-s=://pch@i.o.com/=/hi7u",
+    "://e&pa@t2af/wt7r#aep..vp21smha1x",
+    "n://l@lf.com:pu/?7kbhxvai7#"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": true
+   },
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1034,
+   "urls": [
+    "p@",
+    "-g1knrg.u:-yvcdx/w.x?&a7p",
+    "k://7d@u=:wp=/c=nnospammu?-#aix",
+    "x&nw://fc@i.d/1w/a#2pri",
+    "s://&&&.lnt.fi7sn./f/?#omp",
+    "1do://er.mf@7g.gyu-dbn/v"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": true
+   },
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1035,
+   "urls": [
+    "l://t/u.e.7ai.urbnigp--.com?a1--opfpict",
+    ".@hdru.&=..com:/1/?#",
+    "7/.=pm://awmm@-mbs?ki#-o-wa7xbnfncb",
+    "cmc&=cg1t@2rg.com?ggfwf#uv",
+    "&y@kvk7uxdgsc",
+    "vob-nednm1ip./s/ue-pr-=a.com:b7#"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": true
+   },
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1036,
+   "urls": [
+    "th://@h/.l.7p2/wum=kga?p/&bf#11dx/vsha7eh",
+    "so.yxko2://lwunk/@//#g1r.2",
+    "u1ht7://:/gplnd2rb-oy/ce?n.d",
+    "yh=k",
+    "#se",
+    "mldp@7#-..i2"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": true
+   },
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1037,
+   "urls": [
+    "u&",
+    "&n://bdege-n1l&@ihw1c&.gkkpwg/fx#nxo",
+    "://@7kvg.kwwv.7y.ge1a.com:-lefp/tf",
+    "/vkxti://s@&pm.b.com:1ermi7/ipf?r#7dl=",
+    "bbrykcr@/7ripv/",
+    "&w1=://dg@d.com?ro#i"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": true
+   },
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1038,
+   "urls": [
+    "nf://:ex7/su-wdx&o?wuxh#",
+    "://=.h-h.lp&/cd",
+    "/pkvb",
+    "ys://a2@/?i",
+    "@/kn1-r?gx&b",
+    "n/pk..:wm/te?u#"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": true
+   },
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1039,
+   "urls": [
+    "/d.com",
+    "-eb1fcv./@:7",
+    "@=#b&upco",
+    "d://@?w",
+    "c@a2oao..v71:bylp#wrvay7pc",
+    "ie://-ef@com:v/fies?#/"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": true
+   },
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1040,
+   "urls": [
+    "?v.cy2d",
+    "b://w1@m11c17m&sk.&bf.k/ei/axg7/?#yo",
+    "2:///xu2@",
+    "oky/s2caguskyk2?h-u#xuxtng.afr=vlor1lbp",
+    "@e:nu/.xa.2k#//-",
+    "ams://w=idv.=ve.22x&o.c-7.7&n:wy?"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": true
+   },
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1041,
+   "urls": [
+    "fk7wv@com:r//r?th-is.kub.",
+    "7y.com?c",
+    "i://h@b/fws.com",
+    "@&y.k.com/h?l&2=c",
+    "-g://ldbuf-1@/piwcek&osi",
+    "botml://vpofe/.com:-h/f7o?1lhw&xlsprfu"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": true
+   },
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1042,
+   "urls": [
+    "1c",
+    "=://@m/.1sy:xyb/oridk-&p?d#",
+    "://.xf.pcf7enrr@/?vbf#",
+    "@&p2doe.bu/?&wtp2#",
+    "uno7d://sd@/m/.eeo/nfyaox2hy?s",
+    "#"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": true
+   },
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1043,
+   "urls": [
+    "il/w://=uo.w@r7k?v-yvd2.b/kpnkf-#&",
+    "#",
+    "p@eg.ln/?bgxx&#gnv",
+    "",
+    "af72#/cowbee&ob",
+    "7u://@v7.p/.u.com?ctvxm"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": true
+   },
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1044,
+   "urls": [
+    "khpc-c.nea/c://phvuoemlb.s.ka//b.mu",
+    "1dgav://bb.fepd&/#ms",
+    "pd",
+    "k@px..ap:1//.",
+    "ns2-/bf@b/b2?d&a7t#ek",
+    "vr.xc/t.rv&=?y#bloe./=&"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": true
+   },
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1045,
+   "urls": [
+    "vigmc.com/kc#.&rb",
+    "yggyg.&.i1coyt.&/=iokwrdm#smkl",
+    "kp1spb@?kilsxusk-mk",
+    "@:uv//?",
+    "71.7://7ga.f.e.com",
+    "i2@i2h/oylesb"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": true
+   },
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1046,
+   "urls": [
+    "k.ni-p/c&o://:i1",
+    "h&x.://x@ku?gwg1vl-fh#bgd1",
+    "fx://@-smx7i2cyp/lt",
+    "n.yspide&1.=7xx.il=7o",
+    "7es&/icregxn",
+    "hoi2on/wpi://-wl/7vf.lr2?w#g/lc2"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": true
+   },
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1047,
+   "urls": [
+    "@p.hkrg..2.com/#fku",
+    "e://com:scd-h7.ck=v7=ufu/f2pm/rke?c#-",
+    ".k21tr7g://dwu.c.com:71b?xy-",
+    "og&b@7iel.com:l-?",
+    "",
+    "/y?1led7xt#gprvcmxfniefai1="
+   ]
+  },
+  {
+   "fields": {
+    "PTH": false
+   },
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1048,
+   "urls": [
+    "://@&2=e/=cx?mi/kw/tw#1g&lm//",
+    "r=u1k//=?kexssx2whf&nguno2&xrp",
+    "",
+    "/",
+    "@/u?&t",
+    "@u2bk"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": false
+   },
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1049,
+   "urls": [
+    "",
+    "#/sbeciasu=&ei.fhi",
+    "fk:///?edb#",
+    "com?",
+    "xx-:///u.com:n&soagroxk?2/",
+    "r://@bh:=rt-/f=o-kn7/1=lv#"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": false
+   },
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1050,
+   "urls": [
+    ".l://?oi-",
+    "://f@/yys2=?#",
+    "e://1m/@wks/?21x",
+    "ne=e=x@",
+    ".://7=.x.2n12l:rv-y/d?#xb",
+    "m11y2n&yi://l@b.t:k?.2"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": false
+   },
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1051,
+   "urls": [
+    "://@v.com:ungaw/",
+    "",
+    "com",
+    ":gn=lp1a",
+    "com:bcub",
+    "com?o&7dto7y"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": false
+   },
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1052,
+   "urls": [
+    "&.aet.1knre.g/7c",
+    "",
+    "/=uudglg.c",
+    "ysxghr27dgpusr@mp/1:hounbh&?tdcci",
+    "=yad@lb&.:flaubtwbis#wo7",
+    "w://a-@?h#2s-."
+   ]
+  },
+  {
+   "fields": {
+    "PTH": false
+   },
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1053,
+   "urls": [
+    "wcf",
+    ".spl://:-t?wcw&#/&e=bp.opd",
+    "r@/yk/um&x.?-e1vm#p/ufvup",
+    "2o1@xd&ciyd=pt.mt.com#7",
+    "://com",
+    "xds.pdy/&su.com#p"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": false
+   },
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1054,
+   "urls": [
+    "hyegrrkcprl://-a:nsvxe/ed&y?g&l",
+    "t&2://s:rp1kaen2/?iretixcalxntm",
+    "-1c@xe/?k",
+    "",
+    "yx://tugaeo.idohdouco/pxo=#1",
+    "1rklc11://@f1/.l?evm/#"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": false
+   },
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1055,
+   "urls": [
+    "/wtrps=u1g://2po@/gnts.com:ac.urb/",
+    "meoru.7youn&cyseg@7ybep=f/7.com/x?",
+    "/.",
+    "?",
+    "xt7ye:///.com/-wr?vgsb7d#c.lhtf",
+    "o1://h@fxum.com?g/md7#mgioa7"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": false
+   },
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1056,
+   "urls": [
+    "=h://@/pa?c",
+    "/&2:r?1p#&",
+    "",
+    ".r/",
+    "hiaw?r",
+    "ob@mta"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": false
+   },
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1057,
+   "urls": [
+    "msgc",
+    "ly@/u",
+    "",
+    "://cr.awrubdh.com/k?#f",
+    "p-1&2/ee=p@",
+    "://.7.com/xy&=wcyb-&#x"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": false
+   },
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1058,
+   "urls": [
+    "",
+    "://kx@i:yptw2/#ex2gks=p&li",
+    "cnfr1m-1.day://pcvad@.dvy.tfr&:rmn?otl",
+    "yx-=l://y@#muk",
+    ":-vtw..i.th/nr1vwt/#1lhdr=ga.n",
+    "oktoiri@e/vd/?hc2b.bo1.=lplu#f"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": false
+   },
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1059,
+   "urls": [
+    "ka://@com:lokyoc?",
+    "",
+    "",
+    "",
+    "://ehh2p/@",
+    "op7nbhy.com?#ar/"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": false
+   },
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1060,
+   "urls": [
+    "@h.&ip.afib.gi:b1m&d?m2#.=",
+    "i@",
+    "",
+    "a@:ba27c/?.#ui=",
+    "gcd://afh/:y-hb",
+    ""
+   ]
+  },
+  {
+   "fields": {
+    "PTH": false
+   },
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1061,
+   "urls": [
+    "b@/dimb2",
+    "?",
+    "-b@c:=",
+    "=x@pk.sd/",
+    ".ehwv@:hs=1agnbk?i#m1xov.bskp=y",
+    "@/&hb"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": false
+   },
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1062,
+   "urls": [
+    "",
+    "gu=r://@i7di2e.no/rd?xn&",
+    "&1.xe://&@wy&.n&uy.ph1cbk?",
+    "@f:u/?/#dk.aoh=p.e/",
+    "://a@nsl.e7otvkdg=./mkh.yam:he/2r#g.",
+    ""
+   ]
+  },
+  {
+   "fields": {
+    "PTH": false
+   },
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1063,
+   "urls": [
+    "m://c7-b7c&s1nunc-.c.com:fg/b?",
+    "at1.com:&sf/k/d1nh7",
+    "dl://@dkb.com:mb/?h&k=",
+    "",
+    "ab7.m&7=.com?oist2k.2",
+    ""
+   ]
+  },
+  {
+   "fields": {
+    "QRY": false
+   },
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1064,
+   "urls": [
+    "dts2:w",
+    "x://u@y-.1rr:/r-/?",
+    "yn7@?fib#",
+    "/nksne2kp/",
+    ":///&o.27e",
+    ""
+   ]
+  },
+  {
+   "fields": {
+    "QRY": false
+   },
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1065,
+   "urls": [
+    "nm://@772.bk.fwel-ha-.com?2xt-es",
+    "y.m-.f&upul.fi.com?re&2axv",
+    "?i/",
+    "",
+    "n@.?g1esnee-d",
+    "://"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": false
+   },
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1066,
+   "urls": [
+    "ay1://@g=c.o.2l&ciu:/2&/y",
+    "@u.gub/kro=pff.vmi/ytymipgb2",
+    "",
+    "/vrp?#h&=da",
+    "n7es1",
+    "=t://&-et1hor=@mrd:xgsxwwd1wrmmvu?c#lgf"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": false
+   },
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1067,
+   "urls": [
+    "prbsg://ab.caw.2.pms-.com:r/eku",
+    "://s-@wks.com:mndnl#2al",
+    ":b/su-d1kb/ybn#b",
+    "@vrr2.com:ciwytg/rw&fwyb?ogsv",
+    "2e-ye@it=2d?2eg&a#p",
+    "esgu2@y.dd/g-7na&?e#&"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": false
+   },
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1068,
+   "urls": [
+    "fdev://=s@bd.v.:kav/?ht",
+    ":/df7y///ihyu?",
+    ":nmkwasew/uckec",
+    "bu.@/tc=dla",
+    "o://@rxlbl:gyrd",
+    "a1"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": false
+   },
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1069,
+   "urls": [
+    "://xkfsu21-@com:lt.tm/bwt?1yg1.",
+    ":y?#",
+    "",
+    "b/tc@u.com/",
+    "1@dsham=f2eftrt.com:w?p",
+    "ms://k@mtp.-.com/bu?s"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": false
+   },
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1070,
+   "urls": [
+    "r7tgs--hd7ma://&@:/fn2kdsl/#ren-ayx",
+    "@w..-d7m.cdl:-/-?phai&keoi",
+    "sm://@v/2s-?yfhsg",
+    "a1h2r/://&@1.xshrb/.kexgf.g1yrv/cw=?#2h",
+    "o@tm-a:k.nla",
+    "a://agxv#cmnshv"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": false
+   },
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1071,
+   "urls": [
+    "://n2v/y=p=pd/.com",
+    ".yamfe://7n.com:/1&1tra?",
+    "",
+    "-@:x?.a#yvkl7",
+    "e://7fr@com/#",
+    ""
+   ]
+  },
+  {
+   "fields": {
+    "QRY": false
+   },
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1072,
+   "urls": [
+    "://i&@.s1e.u.h-e.l",
+    "tm-w://sf/c.a:fak/ksi2pl=mmam",
+    "?i77l-kkn2ptcrvg-cw#22&&2&kya2",
+    "cm=7l2e@krpvdp.2flr?xddpe",
+    "&sbar@-g.o&lpib-t:wp?up-b#1",
+    "@/"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": false
+   },
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1073,
+   "urls": [
+    "i@irnt7peg2.com",
+    "br@u.com:m7m?7#icv&x",
+    "1vcbob#xgry-",
+    "://gi@v-n.ft.am1o=:a/l/w?no7agef#",
+    "/://ovci21ai&11po2nke@h.com/ie&?k=twcw",
+    ""
+   ]
+  },
+  {
+   "fields": {
+    "QRY": false
+   },
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1074,
+   "urls": [
+    "bw:ynyuydn?t2ie#ks",
+    "#",
+    "@1cppsiry.l2w/.olo?2lg#ldi--m",
+    "://7a2@7.7i1ufn/i/.&:/mv?",
+    "",
+    "wps://or7.@nu:g/lee&=al?bgvh2#l"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": false
+   },
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1075,
+   "urls": [
+    "/.cr11/-",
+    "",
+    "",
+    "/wo21.k&2gw-",
+    "",
+    "cpg=b=red@w-an/#e"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": false
+   },
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1076,
+   "urls": [
+    ":e.cgu",
+    "",
+    "hu@un7n/s.hag.b/&7?tnolhhdwcnlrhe&f#",
+    "#",
+    "://@pivonp:ci/lv/#=",
+    ".#u"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": false
+   },
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1077,
+   "urls": [
+    "://7p@",
+    "oh#2e-",
+    "fi-7://n/&?ad#7/",
+    ":c?x/#v2=1&fl",
+    "dnbi-kb.com",
+    "exakv=ylbumk://iu.com/"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": false
+   },
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1078,
+   "urls": [
+    "/hdkd?tb2asmg",
+    "ma://y@h.nornk1fw/f?1fht-.#7g",
+    "a2=://n2#7o",
+    "#",
+    "://-k7smte:bsb/&l1",
+    "oisr-yk:///unu/muhri#u2ncfi"
+   ]
+  },
+  {
+   "fields": {
+    "QRY": false
+   },
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1079,
+   "urls": [
+    "://uir&we@:n-t&#av",
+    ":///w#v",
+    "",
+    "b=.@frxdba.co:=2ggybdvsfil1/",
+    "h&f.com",
+    "g7y=@irsu:yl"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true,
+    "QRY": false
+   },
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1080,
+   "urls": [
+    "ggetv.",
+    "p#.a/",
+    "bkf.1fba&gr.peyt.y/ilgm#",
+    "/://2o:vsbglu/-p#m7b-gcp",
+    ":nkck/i.p?a7g#v/x",
+    "/"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true,
+    "QRY": false
+   },
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1081,
+   "urls": [
+    "d/a://k@gtt&ygy.com:miv-#hh",
+    "&v1n7ly://rrc@2.com/?xh=nl",
+    "@d",
+    "hh@ps&rl:n1/hvv?g#",
+    "si://ap7ums@2k:h&-ldy&nf?#",
+    ""
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true,
+    "QRY": false
+   },
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1082,
+   "urls": [
+    "v://r@emht:s-sg/2lhgen71=vb-pp1o.m--#v",
+    "mihndo:=?",
+    "",
+    "@o.b.nml.-/fg/vrx#/ueile",
+    "",
+    "v://1pp.@?meoh=rar&#h"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true,
+    "QRY": false
+   },
+   "label": "benign",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1083,
+   "urls": [
+    "@k&=.com:2/#",
+    ".s://",
+    "2.com?xap#1ibpo=1csb",
+    "",
+    "cw7=g2.bi://@y.k.com#ask/7-",
+    "-v://sutrog@vrbcy7"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true,
+    "QRY": false
+   },
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1084,
+   "urls": [
+    "7ge=yfroh7@&l.&.iyemmre:aldhbu-ir&?fi",
+    "cbt1mcenl-://.wdu/l@ok.i-so#psnkn",
+    ".lpcge://e@lb=h7eueu2ybc:/mg&yukmgt2glwbl/?7",
+    "@mc:-pwdpc/&h?1w#c",
+    "dege721://i@",
+    "?u"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true,
+    "QRY": false
+   },
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1085,
+   "urls": [
+    "cb://se.com:.2//cgv/",
+    "?",
+    "f/y=@.kskxh.com/enss?#",
+    "com:/r/?hgb",
+    "://u@u.cbgsldygxoy-ra.=/mw.com/lfgd.o?ebf7#",
+    "t://@:1=ehfh/-m7cc.r?oc/7&rd-m"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true,
+    "QRY": false
+   },
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1086,
+   "urls": [
+    "7tl-gs:///mp2d?a-bxlkl-",
+    "7/://h.ot/kk?#uestvhgu",
+    "xv=r7l2l://-@dl.&tyeebp.m#wfcpg",
+    "y://ra.st@eampt/n?-/rd2",
+    "t&u.s:1/x?#",
+    "utb.&bcy/7/&#.fv/h/"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true,
+    "QRY": false
+   },
+   "label": "benign",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1087,
+   "urls": [
+    "ied=p=://a@1lx.com:kb/=?nu#ab",
+    "",
+    "g://so.com:h//1aoxf#",
+    "&2op://@ra.ny=b.com/-o",
+    "",
+    "?ylo7e"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true,
+    "QRY": false
+   },
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1088,
+   "urls": [
+    ".b://=@e.=hvxmo-sml.btwsyehtu?&ot/#f",
+    "://ra@#.rgm",
+    "nf://@ns.k:akomflar1a/#u",
+    "7yxy://p./&1..v2f1=i=/g2/o/../7./dkktu#/",
+    "pxbd.l&csry./s?#i=ph",
+    "://nd.ef&@=v-.suus2:c/-e=by?"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true,
+    "QRY": false
+   },
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1089,
+   "urls": [
+    "",
+    "://uo/h@f.1cta.lck-.com/?",
+    "",
+    "://?",
+    "r=m1:///1/?yb",
+    "@yb.wvd&t=vfc-:x7bnu&/o.2d?#sv"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true,
+    "QRY": false
+   },
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1090,
+   "urls": [
+    "lksu&boa/u22://tdsgsfe=@/k&ybeogv?&w2x77",
+    "@",
+    "",
+    "://-p",
+    "h.rcgy./k&ge22cxipb/y2?#-",
+    "toee@uc.s7.ka:e/m&ua&?o#rubh"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true,
+    "QRY": false
+   },
+   "label": "phishing",
+   "decoder": "temperature",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1091,
+   "urls": [
+    "sacigg/cxyd=p://@xmvdfkaa-t.com/#l",
+    ".h1e://.bm-/@yo7gswfa&.ao.com/?m.",
+    ".@t=gr./=.com/2#aaa",
+    "v@",
+    "",
+    "com/#iviry"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true,
+    "QRY": false
+   },
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": null,
+   "seed": 1092,
+   "urls": [
+    "ga@/l/xduw7#2l/7i/",
+    ".://a.7shp172/v?#ur7n",
+    "x://",
+    "vcd://",
+    "gi7oeik1fhgut7://:ge?#s",
+    ""
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true,
+    "QRY": false
+   },
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": false,
+   "suffix": "com",
+   "seed": 1093,
+   "urls": [
+    "",
+    "ufkt.rd@a&&uvoy1n.com",
+    "fmayoc://rd@fwbp.com/wahn#ripl",
+    "w://@/c2-1.uf.com?d",
+    "nofbga.com:pr-1h/2sks#21iv",
+    "://yhpf-@-/2ur=i.=.u/p/.co:l/c/"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true,
+    "QRY": false
+   },
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": null,
+   "seed": 1094,
+   "urls": [
+    "",
+    "s.1ax&-2ny&itb&f&wkc/i.t/c?ydgi",
+    "ne://y@:l",
+    "i://?/",
+    "xrk=x",
+    "/f://w.l.l1.ebigx1okf:gwd/2/f?#p"
+   ]
+  },
+  {
+   "fields": {
+    "PTH": true,
+    "QRY": false
+   },
+   "label": "phishing",
+   "decoder": "typical",
+   "field_bias": true,
+   "suffix": "com",
+   "seed": 1095,
+   "urls": [
+    "a=@/ibw?c.tv#&ckv",
+    "://@fsucmsfa=sev1mt&mlr.s/c&k.com:o/e",
+    "vm1.mfu7d.wwv.com:-/?#",
+    "@&sy&i.com?#a",
+    "s://aik@aoho.com:fmbs-y/?#&d7x",
+    ""
+   ]
+  }
+ ]
+}

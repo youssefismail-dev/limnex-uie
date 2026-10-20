@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Real or Generated?</title>
+<style>
+  :root {
+    --bg: #f6f6f3;
+    --panel: #ffffff;
+    --text: #1c1c1a;
+    --muted: #5c5c57;
+    --border: #d8d7d0;
+    --accent: #2c56c9;
+    --accent-text: #ffffff;
+    --choice: #f1f1ed;
+    --choice-on: #dfe7fb;
+    --warn-bg: #fff4e2;
+    --warn-border: #e8ad55;
+    --warn-text: #563800;
+    --benign-bg: #e4f1e8;
+    --benign-text: #1d5a32;
+    --phish-bg: #fae7e3;
+    --phish-text: #86291a;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141413;
+      --panel: #1f1f1d;
+      --text: #ebebe7;
+      --muted: #a5a59e;
+      --border: #3a3a36;
+      --accent: #84a2f4;
+      --accent-text: #0d0d0c;
+      --choice: #2a2a27;
+      --choice-on: #2c3a5f;
+      --warn-bg: #2e2514;
+      --warn-border: #946620;
+      --warn-text: #f2d8a6;
+      --benign-bg: #1b3224;
+      --benign-text: #a6dfba;
+      --phish-bg: #391e19;
+      --phish-text: #f1b5a8;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 17px; line-height: 1.5; }
+  main { max-width: 680px; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { font-size: 1.6rem; line-height: 1.25; margin: 0 0 12px; }
+  h2 { font-size: 1.15rem; margin: 0 0 8px; }
+  p { margin: 0 0 12px; }
+  .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 0 0 16px; }
+  .warn { background: var(--warn-bg); border: 1px solid var(--warn-border); color: var(--warn-text); border-radius: 10px; padding: 12px 14px; margin: 0 0 16px; }
+  .template-banner { background: var(--warn-bg); border: 2px dashed var(--warn-border); color: var(--warn-text); border-radius: 10px; padding: 10px 14px; margin: 0 0 16px; font-weight: 600; }
+  .muted { color: var(--muted); font-size: 0.92rem; }
+  fieldset { border: 0; padding: 0; margin: 0 0 16px; }
+  legend { font-weight: 600; margin: 0 0 6px; padding: 0; }
+  label.opt { display: flex; align-items: center; gap: 10px; padding: 6px 0; cursor: pointer; }
+  select { font: inherit; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel); color: var(--text); }
+  button { font: inherit; cursor: pointer; border-radius: 10px; border: 1px solid var(--border); padding: 12px 16px; background: var(--choice); color: var(--text); }
+  button.primary { background: var(--accent); color: var(--accent-text); border-color: var(--accent); font-weight: 600; }
+  button.small { padding: 6px 10px; font-size: 0.9rem; }
+  button:disabled { opacity: 0.45; cursor: not-allowed; }
+  button:focus-visible, select:focus-visible, textarea:focus-visible, input:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .progress { display: flex; align-items: center; gap: 12px; margin: 0 0 12px; }
+  .bar { flex: 1; height: 8px; background: var(--choice); border-radius: 99px; overflow: hidden; }
+  .bar > div { height: 100%; background: var(--accent); width: 0; }
+  .chip { display: inline-block; font-size: 0.85rem; font-weight: 600; padding: 3px 10px; border-radius: 99px; margin: 0 0 10px; }
+  .chip.benign { background: var(--benign-bg); color: var(--benign-text); }
+  .chip.phishing { background: var(--phish-bg); color: var(--phish-text); }
+  .url { font-family: var(--mono); font-size: 1.05rem; word-break: break-all; overflow-wrap: anywhere; background: var(--choice); border: 1px solid var(--border); border-radius: 10px; padding: 14px; margin: 0 0 16px; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0 0 16px; }
+  .pair .url { margin: 0; min-height: 90px; }
+  .pair-label { font-weight: 700; margin: 0 0 6px; }
+  .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 0 16px; }
+  .choices button { text-align: left; min-height: 56px; }
+  .choices button[aria-pressed="true"] { background: var(--choice-on); border-color: var(--accent); border-width: 2px; }
+  .key { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); margin-right: 6px; }
+  textarea { width: 100%; font: inherit; font-size: 0.95rem; padding: 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel); color: var(--text); resize: vertical; }
+  textarea.code { font-family: var(--mono); font-size: 0.8rem; min-height: 160px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 0 0 12px; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border); }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .right { justify-content: flex-end; }
+  .hidden { display: none !important; }
+  footer { margin-top: 24px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  a.link { color: var(--muted); }
+  @media (max-width: 480px) { body { font-size: 16px; } .pair { grid-template-columns: 1fr; } .choices { grid-template-columns: 1fr; } .panel { padding: 16px; } }
+</style>
+</head>
+<body>
+<main>
+  <div id="template-banner" class="template-banner hidden">
+    TEMPLATE: these are placeholder addresses, not the study set. Do not use this copy with participants.
+  </div>
+  <div id="storage-warning" class="warn hidden">
+    <strong>This browser is not saving answers.</strong> After each participant, use "Download this participant's
+    answers" on the final screen, or answers will be lost.
+  </div>
+
+  <!-- Screen 1: introduction (one participant at a time) -->
+  <section id="screen-intro">
+    <h1>Real or generated?</h1>
+    <div class="panel">
+      <p>You will see <strong>5 pairs of web addresses (URLs)</strong>, one pair at a time. Some URLs were
+        collected from the real web. Others were invented by a computer model that learned from millions of
+        real URLs.</p>
+      <p>For each pair, say <strong>which is real</strong>: only A, only B, both, or neither (both generated).
+        Any of these can happen: sometimes one is real and one is invented, sometimes both are real, and
+        sometimes both are invented.</p>
+      <p>Each pair is marked as <strong>ordinary website</strong> or <strong>phishing-style</strong> addresses;
+        that mark is correct.</p>
+      <p>It takes about 3 to 5 minutes. Go with your own judgement. You will not be told which ones were real.
+        Each person sees different URLs, so please don't discuss them with the others until everyone has finished.</p>
+    </div>
+    <div class="warn" role="note">
+      <strong>Do not open, visit, search for, or paste any of these addresses into a browser.</strong>
+      Some real phishing-style URLs came from threat feeds and may still be dangerous. Judge from the text alone.
+    </div>
+    <div class="panel">
+      <fieldset id="fs-participant">
+        <legend><label for="participant">Participant number</label></legend>
+        <p class="muted">The organiser tells you your number. Numbers already used are marked "done".</p>
+        <select id="participant"><option value="">Choose…</option></select>
+      </fieldset>
+      <fieldset>
+        <legend>How often do you look closely at web addresses?</legend>
+        <label class="opt"><input type="radio" name="background" value="rarely"> Rarely</label>
+        <label class="opt"><input type="radio" name="background" value="sometimes"> Sometimes</label>
+        <label class="opt"><input type="radio" name="background" value="often"> Often</label>
+        <label class="opt"><input type="radio" name="background" value="work_or_study"> It is part of my work or studies</label>
+      </fieldset>
+      <fieldset>
+        <legend>Have you seen URLs generated by this project before?</legend>
+        <label class="opt"><input type="radio" name="seen" value="no"> No</label>
+        <label class="opt"><input type="radio" name="seen" value="yes"> Yes</label>
+      </fieldset>
+      <div class="row right"><button id="btn-start" class="primary" disabled>Start</button></div>
+    </div>
+  </section>
+
+  <!-- Screen 2: one URL at a time -->
+  <section id="screen-item" class="hidden">
+    <div class="progress">
+      <span id="progress-text" class="muted">Pair 1 of 5</span>
+      <div class="bar" aria-hidden="true"><div id="progress-bar"></div></div>
+    </div>
+    <div class="panel">
+      <span id="item-chip" class="chip benign">Ordinary website</span>
+      <div class="pair" aria-live="polite">
+        <div><p class="pair-label">A</p><div id="item-a" class="url"></div></div>
+        <div><p class="pair-label">B</p><div id="item-b" class="url"></div></div>
+      </div>
+      <h2 id="question">Which is real?</h2>
+      <div class="choices" role="group" aria-labelledby="question">
+        <button type="button" data-choice="only_A_real" aria-pressed="false"><span class="key">1</span>Only A is real</button>
+        <button type="button" data-choice="only_B_real" aria-pressed="false"><span class="key">2</span>Only B is real</button>
+        <button type="button" data-choice="both_real" aria-pressed="false"><span class="key">3</span>Both are real</button>
+        <button type="button" data-choice="both_generated" aria-pressed="false"><span class="key">4</span>Both are generated</button>
+      </div>
+      <label for="reason" class="muted">What made you decide? (optional)</label>
+      <textarea id="reason" rows="2" maxlength="300"></textarea>
+      <div class="row right" style="margin-top: 12px;"><button id="btn-next" class="primary" disabled>Next</button></div>
+      <p class="muted" style="margin-top: 10px;">Keys 1 to 4 choose an answer; Enter goes to the next pair. You cannot go back.</p>
+    </div>
+  </section>
+
+  <!-- Screen 3: one participant finished -->
+  <section id="screen-done" class="hidden">
+    <h1>Done. Thank you!</h1>
+    <div class="panel">
+      <p id="done-shared">Your answers are saved on this laptop. Please hand the laptop back to the organiser.</p>
+      <p id="done-single" class="hidden">Please send your answers to the organiser: copy them and paste them into a
+        message, or download them as a file.</p>
+      <textarea id="single-export" class="code hidden" readonly></textarea>
+      <div class="row" style="margin-top: 12px;">
+        <button id="btn-next-participant" class="primary">Start the next participant</button>
+        <button id="btn-copy-one" class="primary hidden">Copy answers</button>
+        <button id="btn-download-one" class="hidden">Download this participant's answers</button>
+        <span id="one-status" class="muted" aria-live="polite"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Organiser panel -->
+  <section id="screen-organiser" class="hidden">
+    <h1>Organiser</h1>
+    <div class="panel">
+      <table>
+        <thead><tr><th>Participant</th><th>Status</th><th></th></tr></thead>
+        <tbody id="org-table"></tbody>
+      </table>
+      <p class="muted">Export when everyone is done. The file holds choices, comments and timings only; no names.</p>
+      <div class="row">
+        <button id="btn-export-copy" class="primary">Copy all answers</button>
+        <button id="btn-export-download">Download all answers</button>
+        <button id="btn-org-back">Back</button>
+        <span id="org-status" class="muted" aria-live="polite"></span>
+      </div>
+      <textarea id="org-export" class="code" readonly style="margin-top: 12px;"></textarea>
+    </div>
+  </section>
+
+  <footer class="muted">
+    <span id="footer"></span>
+    <a href="#" id="link-organiser" class="link">Organiser</a>
+  </footer>
+</main>
+
+<!--
+  The study set. The build step replaces this block; nothing else in the page changes.
+  It holds IDs, blocks (which participant sees the URL), classes and URLs only.
+  The answer key is never part of this page.
+-->
+<script type="application/json" id="uie-set">
+{
+ "study": "uie-human-100",
+ "format": 1,
+ "set_id": "TEMPLATE",
+ "set_sha256": "TEMPLATE",
+ "placeholder": true,
+ "participants": 10,
+ "items": [
+  {"id": "Q001", "block": 1, "class": "benign", "a": "shop.quartz-nectar-example2.example/blog/2024/spring-notes", "b": "blog.violet-summit-example3.example/shop/item?id=42"},
+  {"id": "Q002", "block": 1, "class": "benign", "a": "summit-river-example4.example/docs/start", "b": "www.cedar-willow-example5.example/news/local"},
+  {"id": "Q003", "block": 1, "class": "benign", "a": "shop.orbit-cedar-example6.example/contact-us", "b": "blog.lumen-atlas-example7.example/team/members"},
+  {"id": "Q004", "block": 1, "class": "phishing", "a": "login-falcon-prism-example8.example/secure/update?session=8", "b": "secure-meadow-orbit-example9.example/signin"},
+  {"id": "Q005", "block": 1, "class": "phishing", "a": "verify-copper-ember-example10.example/billing/confirm", "b": "login-river-harbor-example11.example/wallet/connect"},
+  {"id": "Q006", "block": 2, "class": "benign", "a": "atlas-lumen-example12.example/docs/start", "b": "www.ember-juniper-example13.example/news/local"},
+  {"id": "Q007", "block": 2, "class": "benign", "a": "shop.juniper-maple-example14.example/contact-us", "b": "blog.pixel-falcon-example15.example/team/members"},
+  {"id": "Q008", "block": 2, "class": "phishing", "a": "verify-canyon-pixel-example16.example/billing/confirm", "b": "login-nectar-quartz-example17.example/wallet/connect"},
+  {"id": "Q009", "block": 2, "class": "phishing", "a": "secure-willow-meadow-example18.example/login", "b": "verify-prism-canyon-example19.example/verify/account"},
+  {"id": "Q010", "block": 2, "class": "phishing", "a": "login-harbor-violet-example20.example/secure/update?session=8", "b": "secure-maple-copper-example21.example/signin"},
+  {"id": "Q011", "block": 3, "class": "benign", "a": "shop.quartz-nectar-example22.example/contact-us", "b": "blog.violet-summit-example23.example/team/members"},
+  {"id": "Q012", "block": 3, "class": "benign", "a": "summit-river-example24.example/", "b": "www.cedar-willow-example25.example/about"},
+  {"id": "Q013", "block": 3, "class": "benign", "a": "shop.orbit-cedar-example26.example/blog/2024/spring-notes", "b": "blog.lumen-atlas-example27.example/shop/item?id=42"},
+  {"id": "Q014", "block": 3, "class": "phishing", "a": "verify-falcon-prism-example28.example/billing/confirm", "b": "login-meadow-orbit-example29.example/wallet/connect"},
+  {"id": "Q015", "block": 3, "class": "phishing", "a": "secure-copper-ember-example30.example/login", "b": "verify-river-harbor-example31.example/verify/account"},
+  {"id": "Q016", "block": 4, "class": "benign", "a": "atlas-lumen-example32.example/", "b": "www.ember-juniper-example33.example/about"},
+  {"id": "Q017", "block": 4, "class": "benign", "a": "shop.juniper-maple-example34.example/blog/2024/spring-notes", "b": "blog.pixel-falcon-example35.example/shop/item?id=42"},
+  {"id": "Q018", "block": 4, "class": "phishing", "a": "secure-canyon-pixel-example36.example/login", "b": "verify-nectar-quartz-example37.example/verify/account"},
+  {"id": "Q019", "block": 4, "class": "phishing", "a": "login-willow-meadow-example38.example/secure/update?session=8", "b": "secure-prism-canyon-example39.example/signin"},
+  {"id": "Q020", "block": 4, "class": "phishing", "a": "verify-harbor-violet-example40.example/billing/confirm", "b": "login-maple-copper-example41.example/wallet/connect"},
+  {"id": "Q021", "block": 5, "class": "benign", "a": "shop.quartz-nectar-example42.example/blog/2024/spring-notes", "b": "blog.violet-summit-example43.example/shop/item?id=42"},
+  {"id": "Q022", "block": 5, "class": "benign", "a": "summit-river-example44.example/docs/start", "b": "www.cedar-willow-example45.example/news/local"},
+  {"id": "Q023", "block": 5, "class": "benign", "a": "shop.orbit-cedar-example46.example/contact-us", "b": "blog.lumen-atlas-example47.example/team/members"},
+  {"id": "Q024", "block": 5, "class": "phishing", "a": "secure-falcon-prism-example48.example/login", "b": "verify-meadow-orbit-example49.example/verify/account"},
+  {"id": "Q025", "block": 5, "class": "phishing", "a": "login-copper-ember-example50.example/secure/update?session=8", "b": "secure-river-harbor-example51.example/signin"},
+  {"id": "Q026", "block": 6, "class": "benign", "a": "atlas-lumen-example52.example/docs/start", "b": "www.ember-juniper-example53.example/news/local"},
+  {"id": "Q027", "block": 6, "class": "benign", "a": "shop.juniper-maple-example54.example/contact-us", "b": "blog.pixel-falcon-example55.example/team/members"},
+  {"id": "Q028", "block": 6, "class": "phishing", "a": "login-canyon-pixel-example56.example/secure/update?session=8", "b": "secure-nectar-quartz-example57.example/signin"},
+  {"id": "Q029", "block": 6, "class": "phishing", "a": "verify-willow-meadow-example58.example/billing/confirm", "b": "login-prism-canyon-example59.example/wallet/connect"},
+  {"id": "Q030", "block": 6, "class": "phishing", "a": "secure-harbor-violet-example60.example/login", "b": "verify-maple-copper-example61.example/verify/account"},
+  {"id": "Q031", "block": 7, "class": "benign", "a": "shop.quartz-nectar-example62.example/contact-us", "b": "blog.violet-summit-example63.example/team/members"},
+  {"id": "Q032", "block": 7, "class": "benign", "a": "summit-river-example64.example/", "b": "www.cedar-willow-example65.example/about"},
+  {"id": "Q033", "block": 7, "class": "benign", "a": "shop.orbit-cedar-example66.example/blog/2024/spring-notes", "b": "blog.lumen-atlas-example67.example/shop/item?id=42"},
+  {"id": "Q034", "block": 7, "class": "phishing", "a": "login-falcon-prism-example68.example/secure/update?session=8", "b": "secure-meadow-orbit-example69.example/signin"},
+  {"id": "Q035", "block": 7, "class": "phishing", "a": "verify-copper-ember-example70.example/billing/confirm", "b": "login-river-harbor-example71.example/wallet/connect"},
+  {"id": "Q036", "block": 8, "class": "benign", "a": "atlas-lumen-example72.example/", "b": "www.ember-juniper-example73.example/about"},
+  {"id": "Q037", "block": 8, "class": "benign", "a": "shop.juniper-maple-example74.example/blog/2024/spring-notes", "b": "blog.pixel-falcon-example75.example/shop/item?id=42"},
+  {"id": "Q038", "block": 8, "class": "phishing", "a": "verify-canyon-pixel-example76.example/billing/confirm", "b": "login-nectar-quartz-example77.example/wallet/connect"},
+  {"id": "Q039", "block": 8, "class": "phishing", "a": "secure-willow-meadow-example78.example/login", "b": "verify-prism-canyon-example79.example/verify/account"},
+  {"id": "Q040", "block": 8, "class": "phishing", "a": "login-harbor-violet-example80.example/secure/update?session=8", "b": "secure-maple-copper-example81.example/signin"},
+  {"id": "Q041", "block": 9, "class": "benign", "a": "shop.quartz-nectar-example82.example/blog/2024/spring-notes", "b": "blog.violet-summit-example83.example/shop/item?id=42"},
+  {"id": "Q042", "block": 9, "class": "benign", "a": "summit-river-example84.example/docs/start", "b": "www.cedar-willow-example85.example/news/local"},
+  {"id": "Q043", "block": 9, "class": "benign", "a": "shop.orbit-cedar-example86.example/contact-us", "b": "blog.lumen-atlas-example87.example/team/members"},
+  {"id": "Q044", "block": 9, "class": "phishing", "a": "verify-falcon-prism-example88.example/billing/confirm", "b": "login-meadow-orbit-example89.example/wallet/connect"},
+  {"id": "Q045", "block": 9, "class": "phishing", "a": "secure-copper-ember-example90.example/login", "b": "verify-river-harbor-example91.example/verify/account"},
+  {"id": "Q046", "block": 10, "class": "benign", "a": "atlas-lumen-example92.example/docs/start", "b": "www.ember-juniper-example93.example/news/local"},
+  {"id": "Q047", "block": 10, "class": "benign", "a": "shop.juniper-maple-example94.example/contact-us", "b": "blog.pixel-falcon-example95.example/team/members"},
+  {"id": "Q048", "block": 10, "class": "phishing", "a": "secure-canyon-pixel-example96.example/login", "b": "verify-nectar-quartz-example97.example/verify/account"},
+  {"id": "Q049", "block": 10, "class": "phishing", "a": "login-willow-meadow-example98.example/secure/update?session=8", "b": "secure-prism-canyon-example99.example/signin"},
+  {"id": "Q050", "block": 10, "class": "phishing", "a": "verify-harbor-violet-example100.example/billing/confirm", "b": "login-maple-copper-example101.example/wallet/connect"}
+ ]
+}
+</script>
+
+<!-- Logic: pure functions only (no page access), so they can be tested outside a browser. -->
+<script id="uie-logic">
+var UIELaptop = (function () {
+  "use strict";
+
+  
+  function fnv1a(str) {
+    var h = 0x811c9dc5;
+    for (var i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 0x01000193); }
+    return h >>> 0;
+  }
+  function mulberry32(seed) {
+    var a = seed >>> 0;
+    return function () {
+      a = (a + 0x6D2B79F5) >>> 0;
+      var t = a;
+      t = Math.imul(t ^ (t >>> 15), t | 1);
+      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  // A seeded Fisher-Yates shuffle of an array (returns a new array).
+  function shuffle(arr, seedText) {
+    var rnd = mulberry32(fnv1a(seedText));
+    var out = arr.slice();
+    for (var k = out.length - 1; k > 0; k--) {
+      var j = Math.floor(rnd() * (k + 1));
+      var tmp = out[k]; out[k] = out[j]; out[j] = tmp;
+    }
+    return out;
+  }
+
+  // Each participant sees only their own block, in an order seeded by (set, participant).
+  function itemsFor(set, participant) {
+    var mine = set.items.filter(function (it) { return it.block === participant; });
+    return shuffle(mine, String(set.set_id) + ":" + participant);
+  }
+
+  function checkSet(set) {
+    var problems = [];
+    if (!set || typeof set !== "object") return ["the study set is missing"];
+    if (set.study !== "uie-human-100" && set.study !== "uie-human-10") problems.push("unexpected study name: " + set.study);
+    if (!Array.isArray(set.items) || !set.items.length) { problems.push("the study set has no items"); return problems; }
+    var P = Number(set.participants);
+    if (!(P > 0)) problems.push("the number of participants is missing");
+    var seen = {}, perBlock = {};
+    set.items.forEach(function (it, i) {
+      if (!it || typeof it.id !== "string" || !it.id) problems.push("item " + (i + 1) + " has no id");
+      else if (seen[it.id]) problems.push("duplicate id " + it.id);
+      else seen[it.id] = true;
+      if (!it || (it.class !== "benign" && it.class !== "phishing")) problems.push("item " + (i + 1) + " has an unknown class");
+      if (!it || typeof it.a !== "string" || !it.a || typeof it.b !== "string" || !it.b) problems.push("item " + (i + 1) + " needs two URLs (a and b)");
+      if (!it || !(it.block >= 1 && it.block <= P)) problems.push("item " + (i + 1) + " has no valid block");
+      else perBlock[it.block] = (perBlock[it.block] || 0) + 1;
+    });
+    for (var b = 1; b <= P; b++) if (!perBlock[b]) problems.push("participant " + b + " has no URLs");
+    return problems;
+  }
+
+  function buildRecord(set, meta, answers, order) {
+    return {
+      participant: meta.participant,
+      background: meta.background,
+      seen_project_urls_before: meta.seen,
+      started_at: meta.startedAt,
+      finished_at: meta.finishedAt,
+      order: order,
+      answers: answers.map(function (a) {
+        return { id: a.id, position: a.position, answer: a.choice, reason: a.reason, ms: a.ms };
+      })
+    };
+  }
+
+  // Everything the organiser sends back: one record per finished participant.
+  function buildExport(set, records) {
+    var keys = Object.keys(records).map(Number).sort(function (a, b) { return a - b; });
+    return {
+      study: set.study,
+      format: set.format,
+      set_id: set.set_id,
+      set_sha256: set.set_sha256,
+      placeholder: !!set.placeholder,
+      participants_expected: Number(set.participants),
+      participants_done: keys.length,
+      records: keys.map(function (k) { return records[k]; })
+    };
+  }
+
+  return { fnv1a: fnv1a, shuffle: shuffle, itemsFor: itemsFor, checkSet: checkSet, buildRecord: buildRecord, buildExport: buildExport };
+})();
+</script>
+
+<!-- Page wiring. -->
+<script>
+(function () {
+  "use strict";
+  var L = UIELaptop;
+  var $ = function (id) { return document.getElementById(id); };
+  var set = null;
+  try { set = JSON.parse($("uie-set").textContent); } catch (e) { set = null; }
+  var problems = L.checkSet(set);
+  if (problems.length) {
+    document.querySelector("main").innerHTML = '<div class="warn"><strong>This page cannot run:</strong> ' +
+      problems.map(function (p) { return String(p).replace(/[<>&]/g, ""); }).join("; ") + "</div>";
+    return;
+  }
+  if (set.placeholder) $("template-banner").classList.remove("hidden");
+  $("footer").textContent = "Set " + set.set_id + " - " + String(set.set_sha256).slice(0, 12);
+  var P = Number(set.participants);
+  var SINGLE = P === 1;
+  if (SINGLE) {
+    $("fs-participant").classList.add("hidden");
+    $("link-organiser").classList.add("hidden");
+    $("done-shared").classList.add("hidden");
+    $("done-single").classList.remove("hidden");
+    $("single-export").classList.remove("hidden");
+    $("btn-next-participant").classList.add("hidden");
+    $("btn-copy-one").classList.remove("hidden");
+    $("btn-download-one").textContent = "Download answers";
+  }
+
+  // ---- storage: all finished participants, kept in this browser ----
+  var KEY = "uie-human-100:" + set.set_id;
+  var storageOk = true;
+  try { localStorage.setItem(KEY + ":probe", "1"); localStorage.removeItem(KEY + ":probe"); } catch (e) { storageOk = false; }
+  if (!storageOk) $("storage-warning").classList.remove("hidden");
+  var memory = {};
+  function loadRecords() {
+    if (!storageOk) return memory;
+    try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { return memory; }
+  }
+  function saveRecord(rec) {
+    memory[rec.participant] = rec;
+    if (!storageOk) return;
+    try {
+      var all = loadRecords();
+      all[rec.participant] = rec;
+      localStorage.setItem(KEY, JSON.stringify(all));
+    } catch (e) { /* kept in memory; the download button is shown */ }
+  }
+  function removeRecord(p) {
+    delete memory[p];
+    if (!storageOk) return;
+    try { var all = loadRecords(); delete all[p]; localStorage.setItem(KEY, JSON.stringify(all)); } catch (e) {}
+  }
+
+  function fillParticipants() {
+    var sel = $("participant");
+    var done = loadRecords();
+    while (sel.options.length > 1) sel.remove(1);
+    for (var p = 1; p <= P; p++) {
+      var opt = document.createElement("option");
+      opt.value = String(p);
+      opt.textContent = done[p] ? p + " (done)" : String(p);
+      opt.disabled = !!done[p];
+      sel.appendChild(opt);
+    }
+    sel.value = SINGLE ? "1" : "";
+  }
+
+  function radioValue(name) {
+    var el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : null;
+  }
+  function refreshStart() {
+    $("btn-start").disabled = !($("participant").value && radioValue("background") && radioValue("seen"));
+  }
+  $("participant").addEventListener("change", refreshStart);
+  Array.prototype.forEach.call(document.querySelectorAll('input[type="radio"]'), function (r) { r.addEventListener("change", refreshStart); });
+
+  function show(screen) {
+    ["screen-intro", "screen-item", "screen-done", "screen-organiser"].forEach(function (id) { $(id).classList.toggle("hidden", id !== screen); });
+    window.scrollTo(0, 0);
+  }
+
+  // ---- one participant's session ----
+  var meta, items, answers, pos, current, shownAt, lastRecord;
+  var choiceButtons = Array.prototype.slice.call(document.querySelectorAll(".choices button"));
+  function setChoice(choice) {
+    current = choice;
+    choiceButtons.forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-choice") === choice)); });
+    $("btn-next").disabled = !current;
+  }
+  choiceButtons.forEach(function (b) { b.addEventListener("click", function () { setChoice(b.getAttribute("data-choice")); }); });
+
+  function showItem() {
+    var item = items[pos];
+    $("progress-text").textContent = "Pair " + (pos + 1) + " of " + items.length;
+    $("progress-bar").style.width = Math.round((pos / items.length) * 100) + "%";
+    var chip = $("item-chip");
+    chip.className = "chip " + item.class;
+    chip.textContent = item.class === "phishing" ? "Both phishing-style" : "Both ordinary websites";
+    $("item-a").textContent = item.a;
+    $("item-b").textContent = item.b;
+    $("reason").value = "";
+    setChoice(null);
+    shownAt = Date.now();
+    show("screen-item");
+    choiceButtons[0].focus();
+  }
+
+  function resetIntro() {
+    Array.prototype.forEach.call(document.querySelectorAll('input[type="radio"]'), function (r) { r.checked = false; });
+    fillParticipants();
+    refreshStart();
+    show("screen-intro");
+  }
+
+  $("btn-start").addEventListener("click", function () {
+    var p = Number($("participant").value);
+    if (loadRecords()[p]) { resetIntro(); return; }
+    meta = { participant: p, background: radioValue("background"), seen: radioValue("seen") === "yes", startedAt: new Date().toISOString(), finishedAt: null };
+    items = L.itemsFor(set, p);
+    answers = [];
+    pos = 0;
+    showItem();
+  });
+
+  $("btn-next").addEventListener("click", function () {
+    if (!current) return;
+    var item = items[pos];
+    answers.push({ id: item.id, position: pos + 1, choice: current, reason: $("reason").value.trim(), ms: Date.now() - shownAt });
+    pos += 1;
+    if (pos < items.length) { showItem(); return; }
+    meta.finishedAt = new Date().toISOString();
+    lastRecord = L.buildRecord(set, meta, answers, items.map(function (it) { return it.id; }));
+    saveRecord(lastRecord);
+    if (SINGLE) {
+      var one = {}; one[lastRecord.participant] = lastRecord;
+      $("single-export").value = JSON.stringify(L.buildExport(set, one), null, 1);
+      $("btn-download-one").classList.remove("hidden");
+    } else {
+      $("btn-download-one").classList.toggle("hidden", storageOk);
+    }
+    show("screen-done");
+  });
+
+  document.addEventListener("keydown", function (ev) {
+    if ($("screen-item").classList.contains("hidden")) return;
+    var typing = ev.target && ev.target.id === "reason";
+    var keyMap = { "1": "only_A_real", "2": "only_B_real", "3": "both_real", "4": "both_generated" };
+    if (!typing && keyMap[ev.key]) { setChoice(keyMap[ev.key]); ev.preventDefault(); }
+    else if (ev.key === "Enter" && (!typing || ev.ctrlKey || ev.metaKey) && current) { $("btn-next").click(); ev.preventDefault(); }
+  });
+
+  $("btn-next-participant").addEventListener("click", resetIntro);
+  $("btn-copy-one").addEventListener("click", function () { copyText($("single-export").value, $("one-status"), $("single-export")); });
+
+  // ---- export helpers ----
+  function download(text, name) {
+    var blob = new Blob([text], { type: "application/json" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 0);
+  }
+  function copyText(text, statusEl, fallbackEl) {
+    function report(ok) { statusEl.textContent = ok ? "Copied." : "Select the text and copy it by hand."; }
+    function fallback() { try { fallbackEl.focus(); fallbackEl.select(); return document.execCommand("copy"); } catch (e) { return false; } }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function () { report(true); }, function () { report(fallback()); });
+    else report(fallback());
+  }
+  $("btn-download-one").addEventListener("click", function () {
+    var one = {}; one[lastRecord.participant] = lastRecord;
+    download(JSON.stringify(L.buildExport(set, one), null, 1), "uie_human100_" + set.set_id + "_participant" + String(lastRecord.participant).padStart(2, "0") + ".json");
+  });
+
+  // ---- organiser panel ----
+  function renderOrganiser() {
+    var done = loadRecords();
+    var body = $("org-table");
+    body.innerHTML = "";
+    for (var p = 1; p <= P; p++) {
+      var tr = document.createElement("tr");
+      var td1 = document.createElement("td"); td1.textContent = String(p);
+      var td2 = document.createElement("td"); td2.textContent = done[p] ? "done (" + done[p].answers.length + " answers)" : "not yet";
+      var td3 = document.createElement("td");
+      if (done[p]) {
+        var btn = document.createElement("button");
+        btn.className = "small";
+        btn.textContent = "Clear";
+        btn.setAttribute("data-p", String(p));
+        btn.addEventListener("click", function (ev) {
+          var q = Number(ev.currentTarget.getAttribute("data-p"));
+          if (window.confirm("Delete participant " + q + "'s answers so they can start again?")) { removeRecord(q); renderOrganiser(); }
+        });
+        td3.appendChild(btn);
+      }
+      tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3);
+      body.appendChild(tr);
+    }
+    $("org-export").value = JSON.stringify(L.buildExport(set, done), null, 1);
+    $("org-status").textContent = Object.keys(done).length + " of " + P + " participants done.";
+  }
+  $("link-organiser").addEventListener("click", function (ev) {
+    ev.preventDefault();
+    if (!$("screen-item").classList.contains("hidden")) return; // never during a participant's session
+    renderOrganiser();
+    show("screen-organiser");
+  });
+  $("btn-org-back").addEventListener("click", resetIntro);
+  $("btn-export-copy").addEventListener("click", function () { copyText($("org-export").value, $("org-status"), $("org-export")); });
+  $("btn-export-download").addEventListener("click", function () { download($("org-export").value, "uie_human100_" + set.set_id + "_all.json"); });
+
+  resetIntro();
+})();
+</script>
+</body>
+</html>
