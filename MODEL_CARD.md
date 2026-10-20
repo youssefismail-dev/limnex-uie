@@ -2,8 +2,8 @@
 
 **Limnex URL Intelligence Engine** (Limnex UIE) is a generative model of URLs, trained from scratch.
 Given a class — *benign* or *phishing* — it writes new URLs character by character; the rare exact
-copies of training URLs are removed by the known-URL filter, which the public interface always
-applies to phishing and applies to benign when you supply it. It can also score how typical a URL
+copies of training URLs are removed by the known-URL filter, which the public interface requires
+for every generation, benign and phishing. It can also score how typical a URL
 is of each class. It exists for **defensive
 security research and education** only: read [Responsible Use](#responsible-use) and
 [No Liability](#no-liability) below before using it.

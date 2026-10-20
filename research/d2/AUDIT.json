@@ -195,7 +195,7 @@
   "clean": true
  },
  "history": {
-  "blobs_scanned": 1206,
+  "blobs_scanned": 1213,
   "by_category": {
    "reviewed:platform_named": {
     "blobs": 39,

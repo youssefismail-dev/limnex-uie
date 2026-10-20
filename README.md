@@ -30,7 +30,7 @@ cannot rule out a modest ability — see [Known limitations](#known-limitations-
 works out the patterns itself — a rule-based generator can only ever produce
 attacks its author already knew about.
 
-**Status:** pre-alpha, in **private development**. The baseline engine is
+**Status:** pre-alpha, **public research release v0.1.0** (2026-10-20). The baseline engine is
 **`e16_b5`** (adopted 2026-10-08): `e16_cap`'s weights, a character-level
 transformer trained from scratch on the project's corpus (`d_model` 512, 25.5M
 parameters), decoded at temperature 1.0 with three structural rules that forbid
@@ -45,8 +45,8 @@ roadmap: [DESIGN.md](DESIGN.md).
 
 **This repository is an independent project** in the Limnex family. Limnex UIE is
 developed separately from the Limnex phishing detector (LIMNEX), which consumes it; it never
-imports from, and is never graded by, any consumer. It stays private until the
-roadmap, evaluation and release preparation (D2) are complete.
+imports from, and is never graded by, any consumer. It was released publicly once the
+roadmap, the evaluation and the release preparation (D2) were complete.
 
 ## Quick start
 
