@@ -16,6 +16,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import shutil
 import subprocess
 import sys
 import time
@@ -97,10 +98,15 @@ def main() -> int:
 
     check(hashes["benign"] != hashes["phishing"], "the two modes give different batches")
 
-    # README Quick start, step 3, command-line variant: the same draw through `uie generate`.
-    # stdout carries the URLs and is only hashed; stderr (notice and gate report) carries no URLs.
+    # README Quick start, step 3, command-line variant, through the installed `uie` command: the
+    # same draw through `uie generate`. stdout carries the URLs and is only hashed; stderr (notice
+    # and gate report) carries no URLs.
     print("\n[cli] uie generate --label phishing")
-    cmd = [sys.executable, "-I", "-m", "uie", "generate", "--weights", WEIGHTS, "--known-urls", KNOWN,
+    uie_cmd = shutil.which("uie")
+    check(uie_cmd is not None, "the `uie` command is on PATH")
+    if uie_cmd is None:
+        return 1
+    cmd = [uie_cmd, "generate", "--weights", WEIGHTS, "--known-urls", KNOWN,
            "--label", "phishing", "-n", str(N), "--seed", str(SEED)]
     run = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8")
     check(run.returncode == 0, f"exit code {run.returncode}")
@@ -132,6 +138,16 @@ def main() -> int:
     if len(parts) == 2:
         check(abs((max(parts) - min(parts)) - abs(llr)) < 1e-6, "llr is the difference of the two log-probabilities")
     print(f"  llr = {llr:.2f}")
+
+    # README Quick start, step 3: `uie score --weights ... "example.com/login"` (JSON lines).
+    run = subprocess.run([uie_cmd, "score", "--weights", WEIGHTS, "example.com/login"],
+                         capture_output=True, text=True, encoding="utf-8")
+    check(run.returncode == 0, f"uie score exit code {run.returncode}")
+    if run.returncode == 0:
+        cli_rows = [json.loads(line) for line in run.stdout.splitlines()]
+        check(len(cli_rows) == 1 and abs(cli_rows[0]["llr"] - llr) < 1e-9, "uie score gives the API's llr")
+    else:
+        print(run.stderr)
 
     print()
     if failures:
