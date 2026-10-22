@@ -85,26 +85,8 @@ jobs:
                 "| cuda build:", torch.version.cuda is not None, "| assets verified:", len(api.ASSET_SHA256))
           PY
 
-      # PROPOSAL (needs the owner's decision): these 4 tests (5 cases) compare against bit patterns
-      # recorded on the author's machine (a sha256 of trained weights, and URLs from an untrained toy
-      # model whose logits tie to within one float32 ulp). They fail identically on Linux, Windows
-      # and macOS here. They are run in the next step, report-only, with no traceback.
       - name: Run the test suite
-        run: >
-          python -m pytest -ra --durations=10 --tb=short --junitxml="$RUNNER_TEMP/junit.xml"
-          --deselect tests/test_dc1.py::test_neutral_dc1_options_are_bit_identical_to_the_fixture
-          --deselect tests/test_hc1_enforce.py::test_enforce_off_is_bit_identical_to_the_pre_hc1_code
-          --deselect tests/test_e9.py::test_flags_off_training_is_byte_identical_to_pre_e9
-          --deselect tests/test_v2_p1b.py::test_default_training_is_bit_identical_to_before_the_hook
-
-      - name: Machine-specific bit-exact pins (report only)
-        continue-on-error: true
-        run: >
-          python -m pytest -q --tb=no -p no:cacheprovider
-          tests/test_dc1.py::test_neutral_dc1_options_are_bit_identical_to_the_fixture
-          tests/test_hc1_enforce.py::test_enforce_off_is_bit_identical_to_the_pre_hc1_code
-          tests/test_e9.py::test_flags_off_training_is_byte_identical_to_pre_e9
-          tests/test_v2_p1b.py::test_default_training_is_bit_identical_to_before_the_hook
+        run: python -m pytest -ra --durations=10 --tb=short --junitxml="$RUNNER_TEMP/junit.xml"
 
       # Counts only (read from the JUnit file, which is never uploaded) so each job's tally is on its
       # summary page without opening the log.
