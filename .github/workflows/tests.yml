@@ -85,6 +85,11 @@ jobs:
                 "| cuda build:", torch.version.cuda is not None, "| assets verified:", len(api.ASSET_SHA256))
           PY
 
+      # `python -m pytest`, not the bare `pytest` of README.md (Install) and REPRODUCE.md (Level 1):
+      # tests/test_api.py and tests/test_probe.py do `from tests.test_typicality import ...`, which
+      # only resolves when the repository root is on sys.path, and bare `pytest` fails to collect
+      # with "No module named 'tests'" even after `pip install -e ".[dev]"`. A documentation bug,
+      # reported rather than patched here.
       - name: Run the test suite
         run: python -m pytest -ra --durations=10 --tb=short --junitxml="$RUNNER_TEMP/junit.xml"
 
