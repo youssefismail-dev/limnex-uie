@@ -1,6 +1,7 @@
 # Limnex URL Intelligence Engine (Limnex UIE)
 
 [![Release](https://img.shields.io/github/v/release/youssefismail-dev/limnex-uie)](https://github.com/youssefismail-dev/limnex-uie/releases/tag/v0.1.0)
+[![tests](https://github.com/youssefismail-dev/limnex-uie/actions/workflows/tests.yml/badge.svg)](https://github.com/youssefismail-dev/limnex-uie/actions/workflows/tests.yml)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](pyproject.toml)
 [![Model: 25.5M parameters, trained from scratch](https://img.shields.io/badge/model-25.5M%20params%2C%20from%20scratch-orange)](MODEL_CARD.md)

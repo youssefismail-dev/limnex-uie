@@ -1,0 +1,89 @@
+name: tests
+
+# Installs the package fresh and runs the full offline test suite (pyproject.toml: "Tests must run
+# without network"). Nothing here uses a secret, and nothing generated is printed or uploaded.
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    # Mondays 04:17 UTC: catches drift in the unpinned dependencies (torch, numpy, scikit-learn...).
+    - cron: "17 4 * * 1"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+
+jobs:
+  pytest:
+    name: pytest (${{ matrix.os }}, py${{ matrix.python }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    defaults:
+      run:
+        shell: bash
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # Linux: every Python that pyproject allows (>=3.11) and that torch ships wheels for.
+          - { os: ubuntu-latest, python: "3.11" }
+          - { os: ubuntu-latest, python: "3.12" }
+          - { os: ubuntu-latest, python: "3.13" }
+          - { os: ubuntu-latest, python: "3.14" }
+          # Windows: the oldest and the newest supported version (paths, line endings, locking).
+          - { os: windows-latest, python: "3.11" }
+          - { os: windows-latest, python: "3.14" }
+          # macOS (Apple silicon): one version.
+          - { os: macos-latest, python: "3.12" }
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python ${{ matrix.python }}
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      # PyPI's Linux torch pulls the CUDA wheels (several GB); the tests need only the CPU build.
+      # Windows and macOS wheels on PyPI are already CPU-only.
+      - name: Install CPU-only torch (Linux)
+        if: runner.os == 'Linux'
+        run: python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Install the package with its dev extras
+        run: python -m pip install ".[dev]"
+
+      - name: Show the environment
+        run: python -m pip list --format=columns
+
+      # Run from outside the checkout so that `uie` can only come from the installed package: this
+      # also proves the packaged tables (uie/assets) shipped and are byte-identical to the published
+      # ones (their hashes are checked on load), on every OS.
+      - name: Check the installed package
+        working-directory: ${{ runner.temp }}
+        run: |
+          python -I - <<'PY'
+          import platform, torch, uie, uie.api as api
+          from pathlib import Path
+          assert "site-packages" in Path(uie.__file__).parts, uie.__file__
+          for name in api.ASSET_SHA256:
+              assert api._asset(name), name
+          print("python", platform.python_version(), "| torch", torch.__version__,
+                "| cuda build:", torch.version.cuda is not None, "| assets verified:", len(api.ASSET_SHA256))
+          PY
+
+      - name: Run the test suite
+        run: python -m pytest -ra --durations=10 --tb=short
