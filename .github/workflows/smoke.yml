@@ -9,7 +9,7 @@ name: smoke
 
 on:
   push:
-    branches: [main, claude/adoring-pascal-z9mpl0]   # TEMPORARY: branch only to verify before merge
+    branches: [main]
   workflow_dispatch:
   schedule:
     # Mondays 05:41 UTC.
