@@ -64,6 +64,7 @@ def cfg(**kw):
 
 # ---- flags off: nothing moved --------------------------------------------------------
 
+@pytest.mark.reference_machine
 def test_flags_off_training_is_byte_identical_to_pre_e9():
     torch.set_num_threads(1)
     tok, ds = tiny_setup()

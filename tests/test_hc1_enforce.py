@@ -28,6 +28,7 @@ FIXTURE = json.loads((Path(__file__).parent / "fixtures_e7_generate.json")
 
 # ---- 1. off means off -------------------------------------------------------------
 
+@pytest.mark.reference_machine
 def test_enforce_off_is_bit_identical_to_the_pre_hc1_code():
     tok = e7_tok()
     model = tiny_model(tok)

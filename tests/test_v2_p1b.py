@@ -52,6 +52,7 @@ MODEL_CONFIG = {"d_ff": 64, "d_model": 16, "dropout": 0.1, "max_len": 128, "n_he
                 "struct_ids": [], "vocab_size": 57}
 
 
+@pytest.mark.reference_machine
 @pytest.mark.parametrize("accum", [1, 2])
 def test_default_training_is_bit_identical_to_before_the_hook(accum, tmp_path):
     t = tok()

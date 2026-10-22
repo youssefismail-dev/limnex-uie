@@ -90,8 +90,9 @@ roadmap, the evaluation and the release preparation (D2) were complete.
    **Generation requires the filter:** the model sometimes reproduces a training URL — about 1 in
    100 raw phishing samples is a real phishing URL, and a rare benign copy can carry personal data
    that some real URLs hold (an e-mail address, a token) — and the filter removes them. `uie.load` refuses a
-   model file or a filter that is not the published one (sha256 `98b10b46…` for the model,
-   `3ef34d06…` for the filter's content).
+   model file or a filter that is not the published one (sha256 `98b10b46…` for the model file; for the
+   filter, `3ef34d06…` is the sha256 of its decompressed content, which `uie.load` checks, whereas
+   `SHA256SUMS.txt` lists the sha256 of the downloaded file, `2f8a4706…`).
 3. **Generate and score:**
    ```bash
    uie generate --weights limnex-uie-e16_b5.pt --known-urls limnex-uie-known-urls.bloom.gz --label phishing -n 10

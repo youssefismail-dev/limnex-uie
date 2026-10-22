@@ -40,6 +40,7 @@ def dc1_kwargs(settings, blend_ok):
 
 # ---- 1. off, empty or neutral means off ---------------------------------------------
 
+@pytest.mark.reference_machine
 def test_neutral_dc1_options_are_bit_identical_to_the_fixture():
     tok = e7_tok()
     model = tiny_model(tok)
