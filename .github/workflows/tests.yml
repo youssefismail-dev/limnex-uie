@@ -86,4 +86,24 @@ jobs:
           PY
 
       - name: Run the test suite
-        run: python -m pytest -ra --durations=10 --tb=short
+        run: python -m pytest -ra --durations=10 --tb=short --junitxml="$RUNNER_TEMP/junit.xml"
+
+      # Counts only (read from the JUnit file, which is never uploaded) so each job's tally is on its
+      # summary page without opening the log.
+      - name: Test counts
+        if: always()
+        env:
+          PYV: ${{ matrix.python }}
+        run: |
+          python -I - <<'PY'
+          import os, xml.etree.ElementTree as ET
+          root = ET.parse(os.path.join(os.environ["RUNNER_TEMP"], "junit.xml")).getroot()
+          suites = [root] if root.tag == "testsuite" else list(root)
+          n = sum(int(s.get("tests", 0)) for s in suites)
+          bad = sum(int(s.get("failures", 0)) + int(s.get("errors", 0)) for s in suites)
+          skipped = sum(int(s.get("skipped", 0)) for s in suites)
+          line = f"{n - bad - skipped} passed, {bad} failed, {skipped} skipped ({n} collected)"
+          print(line)
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as fh:
+              fh.write(f"**{os.environ['RUNNER_OS']} / Python {os.environ['PYV']}:** {line}\n")
+          PY
