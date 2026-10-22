@@ -50,3 +50,9 @@ testpaths = ["tests"]
 # collector are both exercised against synthetic fixtures and throwaway git
 # repositories, never the live services.
 addopts = "-q"
+# Puts the repository root on sys.path so that `from tests.x import ...` resolves and plain `pytest`
+# collects (README Install, REPRODUCE.md Level 1), not only `python -m pytest`.
+pythonpath = ["."]
+markers = [
+    "reference_machine: exact-bit pins recorded on the reference machine; set UIE_BITEXACT=1 there to run them",
+]

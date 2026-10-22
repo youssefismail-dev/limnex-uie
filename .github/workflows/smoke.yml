@@ -1,0 +1,90 @@
+name: smoke
+
+# Does the PUBLISHED model work for a stranger who follows the README's Quick start? Downloads the two
+# v0.1.0 release files, checks them against the release's SHA256SUMS.txt, loads the engine with the
+# known-URL filter and generates in both modes.
+#
+# This repository is public, so this log is public: no generated URL is ever printed, summarised or
+# uploaded. The checks (.github/scripts/ci_smoke.py) print only counts, timings and sha256 digests.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    # Mondays 05:41 UTC.
+    - cron: "41 5 * * 1"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+  RELEASE_URL: https://github.com/youssefismail-dev/limnex-uie/releases/download/v0.1.0
+
+jobs:
+  smoke:
+    name: published model (ubuntu, py3.12)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      # README step 1 is `pip install .`; CPU-only torch first so the CUDA wheels are not downloaded.
+      - name: Install CPU-only torch, then the package
+        run: |
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install .
+
+      # The checksum list is 184 bytes. It is fetched every run so the cache key follows it: a
+      # re-published release (new sums) is a cache miss, never a stale hit.
+      - name: Fetch SHA256SUMS.txt
+        run: |
+          mkdir release
+          cd release
+          curl -fsSLO "$RELEASE_URL/SHA256SUMS.txt"
+          cat SHA256SUMS.txt
+
+      - name: Restore the release files
+        id: cache
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            release/limnex-uie-e16_b5.pt
+            release/limnex-uie-known-urls.bloom.gz
+          key: uie-v0.1.0-${{ hashFiles('release/SHA256SUMS.txt') }}
+
+      # README step 2, verbatim.
+      - name: Download the model and the filter (cache miss only)
+        if: steps.cache.outputs.cache-hit != 'true'
+        working-directory: release
+        run: |
+          curl -LO https://github.com/youssefismail-dev/limnex-uie/releases/download/v0.1.0/limnex-uie-e16_b5.pt
+          curl -LO https://github.com/youssefismail-dev/limnex-uie/releases/download/v0.1.0/limnex-uie-known-urls.bloom.gz
+
+      # Always, cached or downloaded: a restored cache is checked like a fresh download. A failed
+      # check fails the job before the post-step could save a bad file to the cache.
+      - name: Verify against SHA256SUMS.txt
+        working-directory: release
+        run: sha256sum -c SHA256SUMS.txt
+
+      - name: Generate and check
+        working-directory: release
+        run: python -I ../.github/scripts/ci_smoke.py
