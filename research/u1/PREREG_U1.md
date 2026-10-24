@@ -195,6 +195,110 @@ Nothing is dropped because it disappoints.
 
 ---
 
+## Amendment 1 (2026-10-20): F1's open details, before any U1 data is drawn
+
+Written before the feed is fetched, the crawl is read, any pool is drawn or any T2 row is filtered.
+Nothing below was chosen after seeing U1 data.
+
+### A1.1 The exclusion key, per class (corrects §1.2)
+§1.2 excludes test rows whose "host or registrable domain" is in UIE's training data. Read literally,
+that removes every phishing URL on a shared platform, because the platform's registrable domain
+(`webflow.io`, `vercel.app`, `pages.dev`, `github.io`, …) is in the training data.
+- **Measured on UIE's own held-out phishing** (the 24,082 hosts of the host split's *test* partition,
+  never trained on): the literal reading removes **15,367 of 24,082 (63.8%)**; by host alone, 0.
+  The extra removals are platforms: webflow.io 1,852, vercel.app 1,767, pages.dev 1,633, github.io
+  1,624, weebly.com 610, …
+- A test set without platform phishing (73% of the feed, `merge_phishing.py`) would be easier and
+  unrepresentative.
+- **The rule therefore follows UIE's own splits:**
+  - **phishing** is keyed by **host** (`group_key_host`, as in `split_phishing_host`);
+  - **benign** is keyed by **registrable domain** (`group_key`, as in `split_random`).
+- **Exclusion rules:**
+  - A **phishing** test row is dropped if its host is in any training host set (phishing or benign).
+  - A **benign** test row is dropped if its registrable domain is in the benign or the phishing
+    training domains, or its host is in any training host set.
+- **"UIE's training data"** means:
+  - `bundle2`'s `name_*`, `structure_*`, `phishing_name_*` and `phishing_structure_*` train and val
+    files;
+  - every top-level `.jsonl` of the E15 (`data/e15/qry_extra/`) and E17 (`data/e17/qry_extra2/`)
+    query streams. That is a superset of the trained streams, so it can only exclude more.
+- **Also reported, not used:** how many T1 and T2 phishing rows the literal reading would have
+  removed.
+- **Label hygiene for T1 benign** (E15's P7 rule): a benign row whose host or registrable domain
+  appears anywhere in the OpenPhish archive at the T1 pin is dropped.
+
+### A1.2 Seeds and draws
+| what | rule |
+|---|---|
+| **pools** (§1.1) | per class: the train files' rows, de-duplicated by URL and sorted, then shuffled once with `random.Random(20261020)`. R1k, R10k and R100k are the first 1k / 10k / 100k. **A_more** for regime R is ranks R … 2R−1 of the same order, so it is disjoint from R. |
+| **validation** (§1.1) | per class: the val files' rows, de-duplicated and sorted, then `random.Random(20261021).sample(…, 20000)` |
+| **T1 phishing** | `uie.corpus.feeds` walk of the full archive up to the pin (origin HEAD at fetch time). Keep URLs first seen after 2026-10-05T12:00:06Z. Pick one URL per host with `random.Random(20261023).choice`, hosts in first-seen order. |
+| **T1 benign budget** | `blocks = ceil(1.25 × n_target / 28.6)`, where `n_target = max(20000, 5 × n_T1_phishing)` and 28.6 is the lowest domains-per-block of the 8 training crawls (CC-MAIN-2026-30). Capped at 2,000 blocks (about 0.8 GB, for the owner's connection). |
+| **T1 benign draw** | `extract_crawl` at seed 20261022 on the newest crawl after CC-MAIN-2026-30 listed in `collinfo.json` at fetch time. One URL per registrable domain (`merge.py`'s reservoir, k = 1, `random.Random(20261024)`), then the exclusions. Then the first `n_target` by `sha256("U1-T1B:" + domain)` order. If fewer than 20,000 remain, one top-up of the missing blocks at seed 20261022 + 1,000,003. Otherwise all available rows are kept and the shortfall against `n_target` is reported. |
+| **T3** | benign: the `name` corpus rows in `split_random`'s test partition. Phishing: the archive's test-partition hosts, one URL each with `random.Random(20261025).choice`. |
+| **T2** | PhreshPhish `test-*` (the local copy `phreshphish_urls.csv`, 104,514 rows: `phish` = phishing). PhiUSIIL (the local `PhiUSIIL_Phishing_URL_Dataset.csv`, 235,795 rows: **label 0 = phishing, 1 = legitimate**). De-duplicated by URL, then the A1.1 exclusions. |
+
+### A1.3 B3
+**`Qwen/Qwen2.5-7B-Instruct`** (Apache-2.0, about 7.6B parameters, no access gate). The Hugging Face
+commit is pinned at F1.
+
+---
+
+## Amendment 2 (2026-10-20): T1 starts where UIE's training data ends
+
+**Made after F1 (`259e6d4`) and before any detector, generator or score exists.** Decided by the
+owner on 2026-10-20.
+
+### A2.1 The correction
+- §1.2 starts T1 phishing after 2026-10-05T12:00:06Z, described as "the last feed commit any UIE
+  training data read". **That description was wrong about training.**
+- **UIE's phishing training data ends at 2026-08-03T00:00:08Z.** That is the latest `first_seen` in
+  `phishing_name_train` and `phishing_structure_train`, from the corpus pinned at `48f7a982b2a4`.
+- The feed between 2026-08-03 and 2026-10-05 was *read* by E15's acquisition, but **none of it was
+  trained on**:
+  - **E15's 918 phishing query rows** from that window (`phishing_P0Q1` 355, `phishing_P1Q1` 563)
+    were **not admitted** (`PREREG_E15.md`, "Phishing: not admitted"). They are in U1's exclusion
+    list (A1.1), so they stay out of T1 regardless.
+  - **E15 and E17 used the window's phishing hosts and domains only to remove benign rows** from
+    their query streams (rule P7): 13 domains (E15) and 7 (E17), out of about 1.06 million candidate
+    domains each. Nothing about those phishing URLs entered UIE's training.
+- The 2026-10-05 line was therefore a cautious "last contact" line, not the training cutoff. It
+  discarded **19,398 never-trained phishing hosts** first seen between 2026-08-03 and 2026-10-05.
+
+### A2.2 The change
+- **T1 phishing (primary)** becomes every phishing URL first seen **after 2026-08-03T00:00:08Z**, up to
+  the **same F1 pin `290d4544`** (2026-10-20T12:00:06Z). The end does not move.
+  - The rules are unchanged: one URL per host (`random.Random(20261023)`) and the A1.1 exclusions.
+  - **24,588 hosts**, against 5,372 for the registered window.
+- **T1 benign** follows the registered rules unchanged. `n_target = max(20000, 5 × 24,588)` gives
+  `block_budget` = the A1.2 cap of **2,000 blocks**.
+  - 1,174 blocks were drawn at F1 (seed 20261022, round `r00`, kept as they are).
+  - The other **826** are drawn as round `r01` at seed 20261022 + 1,000,003.
+  - The selection (A1.2) then runs over both rounds. Because of the cap, T1 benign holds all
+    available rows, and the shortfall against `n_target` is reported.
+- **The registered window is still reported.** F1's original files (`t1_phishing`, 5,372; `t1_benign`,
+  26,860) stay byte-for-byte as frozen in `F1_FREEZE.json`. U1_RESULTS reports S1 and S2 on them too,
+  beside the primary results.
+- The new files are frozen in `research/u1/F1_AMENDMENT2_FREEZE.json`, which also records the sha256
+  of `F1_FREEZE.json`.
+
+### A2.3 Why this is not tuning to the result
+- **What existed when the owner decided:** counts only.
+  - T1's funnel (5,372 hosts; 217 dropped on training hosts) and T1 benign's funnel.
+  - The gap's size (19,398 hosts over 64 days, about 303 a day, against 358 a day in T1).
+  - T2's and T3's sizes.
+- **What did not exist:** any detector, any generated URL from any U1 generator, any score on any U1
+  test set, and any reading of individual test URLs.
+- **The reason is precision, judged before any result.** With 5,372 phishing hosts the smallest
+  recall difference S1/S2 can reliably show is roughly 2 points. With 24,588 it is roughly 1 point,
+  which matters for R100k and for S2, where small differences are expected.
+- **Every hold-out property stays:**
+  - every T1 URL is first seen after UIE's last training URL;
+  - no T1 host is a training host;
+  - T1 still ends at the F1 pin.
+
+---
+
 ## Appendix A: B3 prompt template (fixed)
 
 > You are helping build a **training set for a phishing detector**. Below are 20 real `{label}` URLs

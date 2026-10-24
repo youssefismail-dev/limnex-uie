@@ -1,0 +1,324 @@
+{
+ "registration": "research/u1/PREREG_U1.md, with Amendment 1",
+ "frozen_at": "2026-10-20T16:33:35Z",
+ "freeze_commit_parent": "2f84aefd936f30a8eac6b90e09d8886af32accbd",
+ "files_verified": 34,
+ "exclusions": {
+  "sizes": {
+   "hosts": 1366560,
+   "benign_domains": 1134080,
+   "phishing_domains": 85916
+  },
+  "sources": [
+   {
+    "file": "data/bundle2/name_train.jsonl.gz",
+    "rows": 906214,
+    "sha256": "c32fc9b7860d5ecfd20ce03929eba893ef36f081ee2d39f79d83837d66c58872"
+   },
+   {
+    "file": "data/bundle2/name_val.jsonl.gz",
+    "rows": 113277,
+    "sha256": "2ea96a90620ef2127006b4eecbb0d500f435d8ea12a2fb402f3ca12d611f86a2"
+   },
+   {
+    "file": "data/bundle2/structure_train.jsonl.gz",
+    "rows": 1648460,
+    "sha256": "5ebf0837da20a9ec3487ab9cae3be870b0fbe044b9b1dbf558ace414ae762df7"
+   },
+   {
+    "file": "data/bundle2/structure_val.jsonl.gz",
+    "rows": 209808,
+    "sha256": "f6fbb9756174a71b5fcace0296a72546def00edae5592bae3e20cc99ed355ba9"
+   },
+   {
+    "file": "data/bundle2/phishing_name_train.jsonl.gz",
+    "rows": 192652,
+    "sha256": "8058482f3178f7550349997effde5e9f2b9cccd17a7728993de0512e797b936a"
+   },
+   {
+    "file": "data/bundle2/phishing_name_val.jsonl.gz",
+    "rows": 24081,
+    "sha256": "f94120c4c33aad4975c32c939c4a6de076f1c0372c85f07bbdb18d16844d5eb2"
+   },
+   {
+    "file": "data/bundle2/phishing_structure_train.jsonl.gz",
+    "rows": 46491,
+    "sha256": "f000c635e174e9a158dce468bbd352ba9fc4abe85204b729b66eb9b0b114a048"
+   },
+   {
+    "file": "data/bundle2/phishing_structure_val.jsonl.gz",
+    "rows": 5828,
+    "sha256": "7a088348841c484cb2c55b7f32c00a6578e93ce5034a8098e36b51c89f4b366a"
+   },
+   {
+    "file": "data/e15/qry_extra/benign_P0Q1.jsonl",
+    "rows": 14863,
+    "sha256": "4ef1b466f1190e2705b07cfcd691dd48649bb9069e796be2a99987d78c30b746"
+   },
+   {
+    "file": "data/e15/qry_extra/benign_P1Q1.jsonl",
+    "rows": 42429,
+    "sha256": "ce66a7db77b4fabb079a0500889c099e0daabf7f18c484461b7e70c7e77ee8cd"
+   },
+   {
+    "file": "data/e15/qry_extra/phishing_P0Q1.jsonl",
+    "rows": 355,
+    "sha256": "0a3c1fc047946fb4e2da9b1160e11a4fee687ad2a5de56108e8ee8f3fa68b774"
+   },
+   {
+    "file": "data/e15/qry_extra/phishing_P1Q1.jsonl",
+    "rows": 563,
+    "sha256": "ca8c055826dcd4a43393a6201ca3273a378c19e8424ac145479618d56b3a4ef4"
+   },
+   {
+    "file": "data/e15/qry_extra/qry_extra.jsonl",
+    "rows": 57292,
+    "sha256": "637accab5622f14aa432849fe9f4bc6ede7b2d18188bc3ef141d9d3c71e69e91"
+   },
+   {
+    "file": "data/e17/qry_extra2/benign_P0Q1.jsonl",
+    "rows": 14863,
+    "sha256": "23c64419096a04d4a35042094320ee57ae9392d547e6a3a1fd3168f0e069b698"
+   },
+   {
+    "file": "data/e17/qry_extra2/benign_P1Q1.jsonl",
+    "rows": 42429,
+    "sha256": "a153e75eefd348b107d3a89e32a1292df12674aaa73510bba4a90c9bf7a6b1de"
+   },
+   {
+    "file": "data/e17/qry_extra2/qry_extra_s12.jsonl",
+    "rows": 114584,
+    "sha256": "128b7d69f029e05554cfc9cfce75545c94a19c4f40f013f398a5d580706b4855"
+   }
+  ],
+  "file": "data/u1/exclusions.json.gz",
+  "sha256": "509c17a6b993e08dc8ed154b088f870f92f59dbe4d08c2fdb1609c48a661be3c",
+  "code_commit": "2f84aefd936f30a8eac6b90e09d8886af32accbd",
+  "at": "2026-10-20T16:17:05Z"
+ },
+ "pools": {
+  "seed": 20261020,
+  "seed_val": 20261021,
+  "benign": {
+   "train_urls": 2511076,
+   "val_urls": 317520,
+   "order": {
+    "file": "data/u1/pools/benign_order.jsonl.gz",
+    "rows": 200000,
+    "sha256": "55ac75d2e6de23655e7694b485f9ed9cfb82e8a46fcb75dcb95c034adf21125a"
+   },
+   "regimes": {
+    "R1k": {
+     "real_sha256": "1a732fa93d82d31ecb95d35556e2871045c9472e4cf0ff41cc87bf892fc7007e",
+     "more_sha256": "7017464d2dfd76105101183bd029aa57b690a450f3eac8b775e4c4693dbc836f"
+    },
+    "R10k": {
+     "real_sha256": "fc34526561baf38caa6c2f6134872d99c2ff7dca79e9bb7d45b043a4ca82a66b",
+     "more_sha256": "69526a8b90466a3ab2c820117d5f5118a58dae494f8ede37deedd37b07f66b8f"
+    },
+    "R100k": {
+     "real_sha256": "59e5a5f52b709afdd69abec5a5e7e9cb274fcad01a643df9dd083bbf20e14b21",
+     "more_sha256": "3641aab7de94c62745fb2aa6600df6f722e049f4bf289677881340e62399c569"
+    }
+   },
+   "val": {
+    "file": "data/u1/pools/benign_val.jsonl.gz",
+    "rows": 20000,
+    "sha256": "59680a9b16a8cc441a39b3c86641c11abe66c7bdbf6b5bd58b78b68d3a48055d"
+   }
+  },
+  "phishing": {
+   "train_urls": 231437,
+   "val_urls": 28982,
+   "order": {
+    "file": "data/u1/pools/phishing_order.jsonl.gz",
+    "rows": 200000,
+    "sha256": "a65e34d7274d289cbd9e55d397697facbb7f5264b9aaa3a6b13b358d3daaad5b"
+   },
+   "regimes": {
+    "R1k": {
+     "real_sha256": "6e05a7f87177451ee4298f6fab446902e79445da6ecefc02907d16ed6873312a",
+     "more_sha256": "34a7ffb5be3915a20b0031d43c304bb9be3f2683888cb1b96ecb3c13b7146fb1"
+    },
+    "R10k": {
+     "real_sha256": "81ca3ab21b9bbdb7719cdefc9466eae29c071a13a784672b770b33fbbf563e04",
+     "more_sha256": "afed198c91c5837137ff96cc92c48764d920b2d7f12611aa6da7d4a68e17c02d"
+    },
+    "R100k": {
+     "real_sha256": "778a6e80d7c664cbb9f40843a793aba53eec80d347331e5c497fb7bb846846f3",
+     "more_sha256": "1d75d81b1c6f94b168e403b51fa0b330b80c763647fc6aa96ac9006ce676f27f"
+    }
+   },
+   "val": {
+    "file": "data/u1/pools/phishing_val.jsonl.gz",
+    "rows": 20000,
+    "sha256": "a52dc8b9959ef18f34ebcc1522a7f8a520c77eb7b263f9ad1695a69100e003e5"
+   }
+  },
+  "code_commit": "2f84aefd936f30a8eac6b90e09d8886af32accbd",
+  "at": "2026-10-20T16:17:26Z"
+ },
+ "t3": {
+  "benign": {
+   "file": "data/u1/t3_benign.jsonl.gz",
+   "rows": 113277,
+   "sha256": "d8d0ac40d02d426cef47c6900e60acf349d6c0a96ddebda43a54d07f079ff647"
+  },
+  "phishing": {
+   "file": "data/u1/t3_phishing.jsonl.gz",
+   "rows": 24082,
+   "sha256": "7f1e69f09a862165482c2d875836c60e9073c9360b53b2cb6492666f006dde1d"
+  },
+  "seed_host_pick": 20261025,
+  "code_commit": "2f84aefd936f30a8eac6b90e09d8886af32accbd",
+  "at": "2026-10-20T16:17:53Z"
+ },
+ "t2": {
+  "phreshphish": {
+   "source": {
+    "file": "data/u1/raw/phreshphish_urls.csv",
+    "sha256": "0868198e853dbc2b86bb69d1787684468eeb9e77a6140a842c4613febc2363d3"
+   },
+   "funnel": {
+    "rows": 104514,
+    "benign_unique": 56736,
+    "benign_excluded": 10037,
+    "phishing_unique": 47778,
+    "phishing_literal_rule_would_drop": 21983,
+    "phishing_excluded": 1484
+   },
+   "benign": {
+    "file": "data/u1/t2_phreshphish_benign.jsonl.gz",
+    "rows": 46699,
+    "sha256": "12031a07886b1831e82004b1ab5787211b3ec51f4e559e1245719974d7da11e3"
+   },
+   "phishing": {
+    "file": "data/u1/t2_phreshphish_phishing.jsonl.gz",
+    "rows": 46294,
+    "sha256": "cfe44e6f3bd76c10735a4e98498cd9470c5c84891383378e065230ab66febc30"
+   }
+  },
+  "phiusiil": {
+   "source": {
+    "file": "data/u1/raw/PhiUSIIL_Phishing_URL_Dataset.csv",
+    "sha256": "a236549cd369cd80bd478ff8e1779cbf44c58d5c3f79f7a51a1adbed7d06d1c6"
+   },
+   "funnel": {
+    "rows": 235795,
+    "benign_unique": 134850,
+    "benign_excluded": 6940,
+    "phishing_unique": 100520,
+    "phishing_literal_rule_would_drop": 40229,
+    "phishing_excluded": 3502
+   },
+   "benign": {
+    "file": "data/u1/t2_phiusiil_benign.jsonl.gz",
+    "rows": 127910,
+    "sha256": "c3522bb4b64aeb1a36a289f52610fabb67f7c833e3bab28134a3a482cae239b8"
+   },
+   "phishing": {
+    "file": "data/u1/t2_phiusiil_phishing.jsonl.gz",
+    "rows": 97018,
+    "sha256": "7e0f36b1643837927906ee87b33e42f12fa97d2c1baa8ec629e0afbdf21c51c5"
+   }
+  },
+  "code_commit": "2f84aefd936f30a8eac6b90e09d8886af32accbd",
+  "at": "2026-10-20T16:18:08Z"
+ },
+ "t1_phishing": {
+  "feed": "https://github.com/openphish/public_feed.git",
+  "old_head": "d0642d73d6a3f7c76d2f074aba772858ba7b5c08",
+  "pin": "290d4544fd909c8b64bed6afd9c01186be683db7",
+  "pin_date": "2026-10-20T12:00:06Z",
+  "cutoff": "2026-10-05T12:00:06Z",
+  "archive_urls": 389920,
+  "seed_host_pick": 20261023,
+  "first_seen_range": [
+   "2026-10-06T00:00:08Z",
+   "2026-10-20T12:00:06Z"
+  ],
+  "funnel": {
+   "new_urls": 6922,
+   "new_hosts": 5589,
+   "literal_rule_would_drop": 4281,
+   "host_in_training": 217,
+   "kept": 5372
+  },
+  "file": {
+   "file": "data/u1/t1_phishing.jsonl.gz",
+   "rows": 5372,
+   "sha256": "ec44dc883d99cb7a1fabffbfe68e74efd18924c72b1e710095b5c512dd5a90cf"
+  },
+  "archive_index": {
+   "file": "data/u1/feed_archive_index.json.gz",
+   "sha256": "44bc57958b7c29d1f3fcc461b34d5183d2bcc9c6d2f124d72d1dc3ae92b8e7df"
+  },
+  "code_commit": "2f84aefd936f30a8eac6b90e09d8886af32accbd",
+  "at": "2026-10-20T16:18:36Z"
+ },
+ "t1_benign": {
+  "crawl": "CC-MAIN-2026-39",
+  "n_target": 26860,
+  "blocks": 1174,
+  "seed": 20261022,
+  "seed_reservoir": 20261024,
+  "rounds": [
+   {
+    "crawl": "CC-MAIN-2026-39",
+    "blocks": 1174,
+    "records": 2168952,
+    "kept": 545969,
+    "domains": 32009,
+    "seconds": 691.4,
+    "path": "data/u1/t1_benign_shards/r00/CC-MAIN-2026-39.jsonl.gz",
+    "n_draws": 1178,
+    "n_http_errors": 0,
+    "n_lost_draws": 0,
+    "n_failed_resync": 4
+   }
+  ],
+  "shard_map": {
+   "file": "data/u1/cache/shardmap_CC-MAIN-2026-39.json",
+   "sha256": "3511fa3e4eb0e95be3b30dc8fdc57ea42f866c03cef5f76b003f8a209c68ee1d"
+  },
+  "shards": [
+   {
+    "file": "data/u1/t1_benign_shards/r00/CC-MAIN-2026-39.jsonl.gz",
+    "sha256": "9c82a7163a986fea3328141cdaf6be595849be2bf5891a8495ed759fa4b995b3"
+   }
+  ],
+  "funnel": {
+   "rows_read": 545969,
+   "domains": 32009,
+   "in_training": 1449,
+   "in_phishing_archive": 3,
+   "available": 30557,
+   "kept": 26860,
+   "shortfall_vs_target": 0
+  },
+  "file": {
+   "file": "data/u1/t1_benign.jsonl.gz",
+   "rows": 26860,
+   "sha256": "2ebcbb5eb8c383f736f4b05aedb183de73036fd9b88ec900454cd621105a73d8"
+  },
+  "code_commit": "2f84aefd936f30a8eac6b90e09d8886af32accbd",
+  "at": "2026-10-20T16:33:22Z"
+ },
+ "pins": {
+  "b3": {
+   "repo": "Qwen/Qwen2.5-7B-Instruct",
+   "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+   "last_modified": "2025-01-12T02:10:10.000Z",
+   "license": "apache-2.0",
+   "gated": false
+  },
+  "phreshphish_hf": {
+   "repo": "phreshphish/phreshphish",
+   "revision_at_f1": "eabec4b7a66324b79cc8a0ad856d1731dc26fe1a",
+   "last_modified": "2026-02-09T16:38:43.000Z",
+   "note": "the local copy (test-000..013 url/label/target columns) was fetched on 2026-07-14 without recording a revision; this is the dataset's revision at F1"
+  },
+  "code_commit": "2f84aefd936f30a8eac6b90e09d8886af32accbd",
+  "at": "2026-10-20T16:18:50Z"
+ }
+}

@@ -1,0 +1,97 @@
+{
+ "registration": "research/u1/PREREG_U1.md, Amendment 2",
+ "frozen_at": "2026-10-20T17:20:16Z",
+ "freeze_commit_parent": "5dc89a4c15b53017f3018dcce4dca670ffccabdf",
+ "f1_freeze": {
+  "file": "research/u1/F1_FREEZE.json",
+  "sha256": "d2acbbf5465697efb9ca2952485bf81baefb3ed94a1aecc9fed35de6bf648261",
+  "files_reverified": 34
+ },
+ "files_verified": 4,
+ "t1x_phishing": {
+  "pin": "290d4544fd909c8b64bed6afd9c01186be683db7",
+  "start_after": "2026-08-03T00:00:08Z",
+  "archive_urls": 389920,
+  "seed_host_pick": 20261023,
+  "funnel": {
+   "new_urls": 35777,
+   "new_hosts": 26608,
+   "literal_rule_would_drop": 19471,
+   "kept_gap_window": 19302,
+   "host_in_training": 2020,
+   "kept_registered_window": 5286,
+   "kept": 24588
+  },
+  "first_seen_range": [
+   "2026-08-03T12:00:05Z",
+   "2026-10-20T12:00:06Z"
+  ],
+  "file": {
+   "file": "data/u1/t1x_phishing.jsonl.gz",
+   "rows": 24588,
+   "sha256": "088900c151537bfaf6dce1dcbc34fd548fad76e3bced3732cc218035b5861578"
+  },
+  "code_commit": "5dc89a4c15b53017f3018dcce4dca670ffccabdf",
+  "at": "2026-10-20T17:19:27Z"
+ },
+ "t1x_benign": {
+  "crawl": "CC-MAIN-2026-39",
+  "n_target": 122940,
+  "blocks": 2000,
+  "rounds": [
+   {
+    "crawl": "CC-MAIN-2026-39",
+    "blocks": 1174,
+    "records": 2168952,
+    "kept": 545969,
+    "domains": 32009,
+    "seconds": 691.4,
+    "path": "data/u1/t1_benign_shards/r00/CC-MAIN-2026-39.jsonl.gz",
+    "n_draws": 1178,
+    "n_http_errors": 0,
+    "n_lost_draws": 0,
+    "n_failed_resync": 4
+   },
+   {
+    "crawl": "CC-MAIN-2026-39",
+    "blocks": 826,
+    "records": 1493386,
+    "kept": 385356,
+    "domains": 23739,
+    "seconds": 490.5,
+    "path": "data/u1/t1_benign_shards/r01/CC-MAIN-2026-39.jsonl.gz",
+    "n_draws": 828,
+    "n_http_errors": 0,
+    "n_lost_draws": 0,
+    "n_failed_resync": 2
+   }
+  ],
+  "seed_reservoir": 20261024,
+  "shards": [
+   {
+    "file": "data/u1/t1_benign_shards/r00/CC-MAIN-2026-39.jsonl.gz",
+    "sha256": "9c82a7163a986fea3328141cdaf6be595849be2bf5891a8495ed759fa4b995b3"
+   },
+   {
+    "file": "data/u1/t1_benign_shards/r01/CC-MAIN-2026-39.jsonl.gz",
+    "sha256": "fce562ce00e3674e6150924e281a03bf489b629aee672a4564dc7179b8a1e297"
+   }
+  ],
+  "funnel": {
+   "rows_read": 931325,
+   "domains": 55737,
+   "in_training": 2252,
+   "in_phishing_archive": 3,
+   "available": 53482,
+   "kept": 53482,
+   "shortfall_vs_target": 69458
+  },
+  "file": {
+   "file": "data/u1/t1x_benign.jsonl.gz",
+   "rows": 53482,
+   "sha256": "55f59a7832a25abdc9cdd339381f49b0bf8c6ffd9fc4c024c062e67da32bda1b"
+  },
+  "code_commit": "5dc89a4c15b53017f3018dcce4dca670ffccabdf",
+  "at": "2026-10-20T17:19:27Z"
+ }
+}

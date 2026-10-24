@@ -1,0 +1,10 @@
+DIAG summary  2026-10-22T23:57:27Z
+broken = the tie block at the 1%-FPR threshold holds >= 1% of benign validation URLs
+
+healthy: 270 runs | median dead pooled 0/320, dead hidden 44/64, inputs with no hidden unit alive 0.000, with no pooled feature alive 0.000, pre-ReLU pooled max (median) 4.148
+
+key | tie@t1 | t1 is top | dead pool | dead hid | no-hid-alive | tied: no-hid / no-pool | t1=out_bias | t1=head(0) | finite | gpu r1 -> cpu r1 | gpu auc -> cpu auc
+
+split-forward check: max |logit difference| 0.00e+00
+
+replays (CPU, registered recipe):

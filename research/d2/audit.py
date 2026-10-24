@@ -71,9 +71,9 @@ EMAIL_OK = re.compile(r"(?i)@(?:example\.(?:com|org|net)|anthropic\.com|users\.n
 #: Reviewed exceptions (D2 audit, research/d2/AUDIT.md). Each is reported, not counted as a finding.
 #: Hosting platforms named in analysis: the registrable domain belongs to the platform, which
 #: carries benign and phishing sites alike; naming it points at no one's site.
-REVIEWED_PLATFORMS = {"appspot.com", "blogspot.com", "fc2.com", "com.de", "pages.dev", "netlify.app",
-                      "vercel.app", "workers.dev", "weebly.com", "weeblysite.com", "godaddysites.com",
-                      "github.io", "serv00.net"}
+REVIEWED_PLATFORMS = {"appspot.com", "blogspot.com", "blogspot.ro", "fc2.com", "com.de", "pages.dev",
+                      "netlify.app", "vercel.app", "workers.dev", "weebly.com", "weeblysite.com",
+                      "godaddysites.com", "github.io", "serv00.net"}
 #: (path, category) -> reason
 REVIEWED = {
     ("E3_REPORT.md", "brand_in_md_host"):

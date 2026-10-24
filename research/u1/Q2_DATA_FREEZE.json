@@ -1,0 +1,251 @@
+{
+ "purpose": "U1 Q2 training data (research/u1/Q2_PROTOCOL.md sections 1-2)",
+ "commit": "c0fff8b2fe3214a50424fcfa787e483d6018800f",
+ "files": {
+  "benign_order.jsonl.gz": {
+   "content_sha256": "53eb641b40abf27bb6494606b88518359913cebf767740a872ab97a4f699e693",
+   "sha256": "55ac75d2e6de23655e7694b485f9ed9cfb82e8a46fcb75dcb95c034adf21125a"
+  },
+  "phishing_order.jsonl.gz": {
+   "content_sha256": "7c03600e5f78a1897d4e7e516fd0c8b4b6f32ed0924c0fc043250ff6dfbf033e",
+   "sha256": "a65e34d7274d289cbd9e55d397697facbb7f5264b9aaa3a6b13b358d3daaad5b"
+  },
+  "benign_val.jsonl.gz": {
+   "content_sha256": "6bed44e501b59e0f5dd569f336f96c0564f04c65712ec3b4e070e76e775cf4cd",
+   "sha256": "59680a9b16a8cc441a39b3c86641c11abe66c7bdbf6b5bd58b78b68d3a48055d"
+  },
+  "phishing_val.jsonl.gz": {
+   "content_sha256": "dcad08550c50b42ea45091ce0dd4011738b136efabbccdda0f70941312cd5df4",
+   "sha256": "a52dc8b9959ef18f34ebcc1522a7f8a520c77eb7b263f9ad1695a69100e003e5"
+  },
+  "uie_benign.jsonl.gz": {
+   "content_sha256": "2b8151ac790308f8dcb88ff5ee3af56717c2f55e4d575fd50bbcc7da4bb2b88d",
+   "sha256": "887bd080cba70e8fa652995ee76832f3d15db22a33b27c09bec75f7a7ee1a8b6",
+   "rows": 100000
+  },
+  "uie_phishing.jsonl.gz": {
+   "content_sha256": "507478d658b879351d0903da4146e7bf35a950ed2db48fc76805159b7a34cf35",
+   "sha256": "ef73259d01691d30bb949e7826925b97633a9e3959031f069102e713f890a1eb",
+   "rows": 100000
+  },
+  "ngram_benign.jsonl.gz": {
+   "content_sha256": "4c647606212c6356de4af8731240e02383fb3d3d4c6b740ac12f1f170f47374b",
+   "sha256": "aeb12ee8d3bea3643e139ddb847c48e91721d0108185466bf3b15406d2419739",
+   "rows": 100000
+  },
+  "ngram_phishing.jsonl.gz": {
+   "content_sha256": "7be635db72210227504c0bfb2bc7cea267525f95daa88c4d07a64793c620b4dc",
+   "sha256": "687593d3fe76ed48d1ddaf75fd22be80a9d3b2a525e17cc25632b17143450703",
+   "rows": 100000
+  },
+  "lstm_benign.jsonl.gz": {
+   "content_sha256": "2a3b38a7086eaffd71555983e42b2ef53030b1db551858222c3b7a16b9690cae",
+   "sha256": "2499a2097339ecaed1fe3b69945b853dd9ea3287b4a35649b7867bbda51750ff",
+   "rows": 100000
+  },
+  "lstm_phishing.jsonl.gz": {
+   "content_sha256": "1a82378c463f00d0cde2fe6e00acb72044c1b407e37e5651fa9df830009511ac",
+   "sha256": "0c587a6fea6d3c8b8a21f06c092d60f0e824b6ee09d175b2a1cc9ef5ca504c86",
+   "rows": 100000
+  },
+  "llm_benign.jsonl.gz": {
+   "content_sha256": "08e50f2a24911355ee0ed89e0a2ab4374e633a1fc5fb051e0e42a1ff001b1d53",
+   "sha256": "284446437550d4d29a11c40726abbd9b301ed2c143c1350d96502cc7663aeb14",
+   "rows": 100000
+  },
+  "llm_phishing.jsonl.gz": {
+   "content_sha256": "503b9c9f8914e938191141175d4d7e75a610659f6401b43da3aacc3b994e971d",
+   "sha256": "1b396b01dc1fc05f444b0e3b024e69724889f6135c2e9c64ebb05c60c1ed2ad8",
+   "rows": 100000
+  }
+ },
+ "sets": {
+  "uie|benign": {
+   "file": "data/u1/q2/synth/uie_benign.jsonl.gz",
+   "rows": 100000,
+   "sha256": "887bd080cba70e8fa652995ee76832f3d15db22a33b27c09bec75f7a7ee1a8b6",
+   "files_read": 13,
+   "urls_read": 104000,
+   "used_per_g": {
+    "0": 8000,
+    "1": 8000,
+    "2": 8000,
+    "3": 8000,
+    "4": 8000,
+    "5": 7999,
+    "6": 7998,
+    "7": 8000,
+    "8": 8000,
+    "9": 8000,
+    "10": 8000,
+    "11": 7999,
+    "12": 4004
+   }
+  },
+  "uie|phishing": {
+   "file": "data/u1/q2/synth/uie_phishing.jsonl.gz",
+   "rows": 100000,
+   "sha256": "ef73259d01691d30bb949e7826925b97633a9e3959031f069102e713f890a1eb",
+   "files_read": 13,
+   "urls_read": 104000,
+   "used_per_g": {
+    "0": 8000,
+    "1": 7996,
+    "2": 7990,
+    "3": 7988,
+    "4": 7982,
+    "5": 7979,
+    "6": 7968,
+    "7": 7967,
+    "8": 7967,
+    "9": 7967,
+    "10": 7950,
+    "11": 7962,
+    "12": 4284
+   }
+  },
+  "ngram|benign": {
+   "file": "data/u1/q2/synth/ngram_benign.jsonl.gz",
+   "rows": 100000,
+   "sha256": "aeb12ee8d3bea3643e139ddb847c48e91721d0108185466bf3b15406d2419739",
+   "files_read": 13,
+   "urls_read": 104000,
+   "used_per_g": {
+    "0": 8000,
+    "1": 7997,
+    "2": 7994,
+    "3": 7991,
+    "4": 7994,
+    "5": 7994,
+    "6": 7987,
+    "7": 7988,
+    "8": 7990,
+    "9": 7987,
+    "10": 7989,
+    "11": 7983,
+    "12": 4106
+   }
+  },
+  "ngram|phishing": {
+   "file": "data/u1/q2/synth/ngram_phishing.jsonl.gz",
+   "rows": 100000,
+   "sha256": "687593d3fe76ed48d1ddaf75fd22be80a9d3b2a525e17cc25632b17143450703",
+   "files_read": 13,
+   "urls_read": 104000,
+   "used_per_g": {
+    "0": 8000,
+    "1": 7987,
+    "2": 7978,
+    "3": 7964,
+    "4": 7974,
+    "5": 7960,
+    "6": 7962,
+    "7": 7950,
+    "8": 7940,
+    "9": 7952,
+    "10": 7938,
+    "11": 7940,
+    "12": 4455
+   }
+  },
+  "lstm|benign": {
+   "file": "data/u1/q2/synth/lstm_benign.jsonl.gz",
+   "rows": 100000,
+   "sha256": "2499a2097339ecaed1fe3b69945b853dd9ea3287b4a35649b7867bbda51750ff",
+   "files_read": 13,
+   "urls_read": 104000,
+   "used_per_g": {
+    "0": 8000,
+    "1": 8000,
+    "2": 8000,
+    "3": 8000,
+    "4": 8000,
+    "5": 8000,
+    "6": 8000,
+    "7": 8000,
+    "8": 8000,
+    "9": 8000,
+    "10": 8000,
+    "11": 8000,
+    "12": 4000
+   }
+  },
+  "lstm|phishing": {
+   "file": "data/u1/q2/synth/lstm_phishing.jsonl.gz",
+   "rows": 100000,
+   "sha256": "0c587a6fea6d3c8b8a21f06c092d60f0e824b6ee09d175b2a1cc9ef5ca504c86",
+   "files_read": 13,
+   "urls_read": 104000,
+   "used_per_g": {
+    "0": 8000,
+    "1": 7997,
+    "2": 7998,
+    "3": 7995,
+    "4": 7991,
+    "5": 7991,
+    "6": 7991,
+    "7": 7988,
+    "8": 7987,
+    "9": 7989,
+    "10": 7986,
+    "11": 7983,
+    "12": 4104
+   }
+  },
+  "llm|benign": {
+   "file": "data/u1/q2/synth/llm_benign.jsonl.gz",
+   "rows": 100000,
+   "sha256": "284446437550d4d29a11c40726abbd9b301ed2c143c1350d96502cc7663aeb14",
+   "files_read": 14,
+   "urls_read": 112000,
+   "used_per_g": {
+    "0": 8000,
+    "1": 7982,
+    "2": 7976,
+    "3": 7967,
+    "4": 7949,
+    "5": 7921,
+    "6": 7929,
+    "7": 7911,
+    "8": 7900,
+    "9": 7918,
+    "10": 7896,
+    "11": 7893,
+    "12": 4758
+   }
+  },
+  "llm|phishing": {
+   "file": "data/u1/q2/synth/llm_phishing.jsonl.gz",
+   "rows": 100000,
+   "sha256": "1b396b01dc1fc05f444b0e3b024e69724889f6135c2e9c64ebb05c60c1ed2ad8",
+   "files_read": 14,
+   "urls_read": 112000,
+   "used_per_g": {
+    "0": 8000,
+    "1": 7953,
+    "2": 7930,
+    "3": 7869,
+    "4": 7855,
+    "5": 7835,
+    "6": 7813,
+    "7": 7773,
+    "8": 7797,
+    "9": 7748,
+    "10": 7763,
+    "11": 7735,
+    "12": 5929
+   }
+  }
+ },
+ "provenance_sha256": {
+  "data/u1/q1/gen/PROVENANCE_llm.json": "7c3b51753a9ec79c95996f8e89ef5a7e7de851f5ad52c0ae54ce727f8cb17d3b",
+  "data/u1/q1/gen/PROVENANCE_lstm.json": "8ee38b388981502ce702c7847a9fdd19d712b062f15f34b16cf0de2d260c3dd3",
+  "data/u1/q1/gen/PROVENANCE_ngram.json": "7981456f6733dbdd459431e7b06b734761fc52e8cf94888ccf956863f3e83d30",
+  "data/u1/q1/gen/PROVENANCE_uie.json": "8bbca0c811bb05dc22966905060d41f9c864362c2220d45986505769da5df48f",
+  "data/u1/q2/gen/PROVENANCE_llm.json": "56c734b0b4fb6b1eaa55b46fec878a8158e7d4924a1af6df7153db5b37ed5dbb",
+  "data/u1/q2/gen/PROVENANCE_lstm.json": "e147d8990abea1ff9e8a747e68f680b6f52224a7ed41c1b3cf5e01f1457831b0",
+  "data/u1/q2/gen/PROVENANCE_ngram.json": "41ddbcde9b56d965397c33a8a5dcb885d7a304cbea7b5635730212ab54d04551",
+  "data/u1/q2/gen/PROVENANCE_uie.json": "a57bc85cff57a15df1a4904ea79c2c65a9add790a4779d2a872d4e09fd11a37e"
+ },
+ "at": "2026-10-22T13:36:37Z"
+}

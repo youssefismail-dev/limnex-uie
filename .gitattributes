@@ -3,3 +3,8 @@
 # are CRLF, as the bundle wrote them on Windows; the state tables' are LF), so a converted copy
 # would fail its own check (found in D2 step 6).
 uie/assets/*.json -text
+
+# U1 Q2 Amendment 1's evidence: Q2_AMENDMENT_1.md lists these files' sha256, so their bytes must survive
+# every checkout unchanged.
+research/u1/q2_repair/* -text
+research/u1/Q2_REPORT.json -text
