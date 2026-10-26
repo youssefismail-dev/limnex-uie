@@ -13,6 +13,12 @@ and host length (17.2 -> 18.4).
 """
 from __future__ import annotations
 
+import os
+import signal
+import subprocess
+import sys
+from pathlib import Path
+
 import pytest
 import torch
 import torch.nn.functional as F
@@ -138,18 +144,39 @@ def test_a_factorized_model_trains_end_to_end():
     assert res is not None
 
 
-def test_forward_and_loss_survive_autocast():
-    """REGRESSION: the E6 launch crashed here, and every prior test missed it.
+#: How a process ends when the CPU meets an instruction it does not have:
+#: SIGILL on POSIX, STATUS_ILLEGAL_INSTRUCTION (0xC000001D) on Windows, which
+#: subprocess reports unsigned.
+_ILLEGAL_INSTRUCTION = {-signal.SIGILL, 0xC000001D, 0xC000001D - 2 ** 32}
 
-        RuntimeError: index_copy_(): self and source expected to have the same
-        dtype, but got (self) Half and (source) Float
 
-    Under autocast `head` returns fp16 while `log_softmax` and `logsigmoid` are
-    promoted to fp32, so a buffer typed from `logits` is Half and the sources
-    are Float. Training uses AMP on GPU; every test ran on CPU without it, so
-    the code path that actually runs was never exercised. CPU autocast applies
-    the same promotion policy and reproduces it without a GPU.
+def _in_child(check: str) -> None:
+    """Run one bfloat16 autocast check in its own Python process.
+
+    Some CI hosts (seen twice on GitHub's Windows runners under Python 3.14,
+    2026-10) kill the process with an illegal instruction inside torch's
+    bfloat16 linear kernel: that machine's CPU lacks an instruction torch
+    dispatched to. In-process, that takes the whole suite down with it, and
+    says nothing about this project's code. In a child, it becomes a skip that
+    names the cause, while every other outcome -- a pass, or a real assertion
+    failure -- is reported exactly as before.
     """
+    root = Path(__file__).resolve().parents[1]
+    env = {**os.environ,
+           "PYTHONPATH": os.pathsep.join(
+               p for p in (str(root), os.environ.get("PYTHONPATH")) if p)}
+    proc = subprocess.run(
+        [sys.executable, "-c",
+         "import runpy, sys; runpy.run_path(sys.argv[1])[sys.argv[2]]()",
+         str(Path(__file__).resolve()), check],
+        cwd=root, env=env, capture_output=True, text=True, timeout=300)
+    if proc.returncode in _ILLEGAL_INSTRUCTION:
+        pytest.skip("this machine's CPU cannot run torch's bfloat16 kernels "
+                    f"(illegal instruction, exit {proc.returncode})")
+    assert proc.returncode == 0, proc.stderr[-4000:]
+
+
+def _check_factorized_autocast():
     m = URLTransformer(_cfg())
     ids = torch.randint(1, 16, (3, 8))
     with torch.amp.autocast("cpu", dtype=torch.bfloat16):
@@ -162,11 +189,52 @@ def test_forward_and_loss_survive_autocast():
     assert m.gate.weight.grad is not None
 
 
-def test_unfactorized_head_also_survives_autocast():
-    """The control: the classic head must be unaffected by the fix."""
+def _check_unfactorized_autocast():
     m = URLTransformer(ModelConfig(vocab_size=16, max_len=24, d_model=16,
                                    n_layers=1, n_heads=2, d_ff=32))
     ids = torch.randint(1, 16, (3, 8))
     with torch.amp.autocast("cpu", dtype=torch.bfloat16):
         loss = m.loss(ids, pad_id=0)
     assert torch.isfinite(loss)
+
+
+def test_forward_and_loss_survive_autocast():
+    """REGRESSION: the E6 launch crashed here, and every prior test missed it.
+
+        RuntimeError: index_copy_(): self and source expected to have the same
+        dtype, but got (self) Half and (source) Float
+
+    Under autocast `head` returns fp16 while `log_softmax` and `logsigmoid` are
+    promoted to fp32, so a buffer typed from `logits` is Half and the sources
+    are Float. Training uses AMP on GPU; every test ran on CPU without it, so
+    the code path that actually runs was never exercised. CPU autocast applies
+    the same promotion policy and reproduces it without a GPU.
+    """
+    _in_child("_check_factorized_autocast")
+
+
+def test_unfactorized_head_also_survives_autocast():
+    """The control: the classic head must be unaffected by the fix."""
+    _in_child("_check_unfactorized_autocast")
+
+
+def test_a_failing_child_check_is_reported_not_skipped():
+    """The guard must not hide real failures: only an illegal instruction
+    becomes a skip. An ordinary assertion error in the child still fails."""
+    with pytest.raises(AssertionError, match="AssertionError"):
+        _in_child("_check_that_fails")
+
+
+def _check_that_fails():
+    assert False, "deliberate"
+
+
+@pytest.mark.parametrize("code", sorted(_ILLEGAL_INSTRUCTION))
+def test_an_illegal_instruction_in_the_child_is_a_skip(monkeypatch, code):
+    """The other half of the guard, without needing such a CPU: a child that
+    ends with an illegal instruction becomes a skip, on either platform's
+    exit code."""
+    monkeypatch.setattr(subprocess, "run", lambda *a, **k:
+                        subprocess.CompletedProcess(a, code, "", ""))
+    with pytest.raises(pytest.skip.Exception, match="illegal instruction"):
+        _in_child("_check_factorized_autocast")
